@@ -1,0 +1,80 @@
+{
+    "env": {
+      "browser": true,
+      "react-native/react-native": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "@react-native-community",
+      "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "react-native",
+      "@typescript-eslint",
+      "react-hooks",
+      "simple-import-sort",
+      "import"
+    ],
+    "rules": {
+      "@typescript-eslint/no-var-requires": 0,
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "@typescript-eslint/explicit-module-boundary-types": 0,
+      "react-native/no-inline-styles": 0,
+      "no-case-declarations": 0,
+      "@typescript-eslint/no-explicit-any": 0,
+      "@typescript-eslint/no-this-alias": 0,
+      "simple-import-sort/imports": [
+        "error",
+        {
+          "groups": [
+            // Side effect imports.
+            [
+              "^\\u0000"
+            ],
+            // Packages.
+            // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
+            [
+              "^@?\\w"
+            ],
+            // Absolute imports and other imports such as Vue-style `@/foo`.
+            // Anything that does not start with a dot.
+            [
+              "^[^.]"
+            ],
+            // Vault relative imports
+            [
+              "(^(api|assets|components|config|constants|helper|hooks|navigation|pages|reduxStore|styles|utils)/)"
+            ],
+            // Relative imports.
+            // Anything that starts with a dot.
+            [
+              "^\\."
+            ]
+          ]
+        }
+      ],
+      "import/first": "error",
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error",
+      "no-console": "error",
+      "react/no-unstable-nested-components": "off",
+      "@typescript-eslint/no-non-null-assertion": "off"
+    },
+    "ignorePatterns": [
+      "declarations.d.ts"
+    ]
+  }
