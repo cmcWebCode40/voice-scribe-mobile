@@ -7,9 +7,9 @@
       "components/*":["components/*"],
       "libs/*":["libs/*"],
       "assets/*":["assets/*"],
-      "screen/*":["components/*"],
+      "screens/*":["screens/*"],
       "navigations/*":["navigations/*"],
-    }
+    },
   },
-
+  "exclude": ["node_modules"]
 }
