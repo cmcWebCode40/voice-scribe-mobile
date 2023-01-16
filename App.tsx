@@ -1,7 +1,12 @@
-// import { StatusBar } from 'expo-status-bar'
-import { RootNavigation } from 'navigations/RootNavigation'
+import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 
+import { RootNavigation } from './navigations'
+
 export default function App() {
-  return <RootNavigation />
+  return (
+    <NavigationContainer>
+      <RootNavigation />
+    </NavigationContainer>
+  )
 }

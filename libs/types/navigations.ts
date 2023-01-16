@@ -1,14 +1,19 @@
 export type TAuthNavigation = {
-  userSignIn: undefined
-  userSignUp: undefined
+  UserSignIn: undefined
+  UserSignUp: undefined
 }
 
 export type TDashboardNaviagtion = {
-  dashboard: undefined
-  profile: undefined
+  Dashboard: undefined
+  Profile: undefined
 }
 
 export type TMainNavigation = {
-  dashboard: TDashboardNaviagtion
-  settings: undefined
+  Dashboard: TDashboardNaviagtion
+  Settings: undefined
+}
+
+export type TRootStackParams = {
+  Main: TMainNavigation
+  Auth: TAuthNavigation
 }

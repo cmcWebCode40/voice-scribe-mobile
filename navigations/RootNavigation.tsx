@@ -1,31 +1,33 @@
-import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { TRootStackParams } from 'libs/types'
 import React, { useState } from 'react'
 
 import { AuthNavigation } from './AuthNavigation'
 import { MainNavigation } from './MainNavigation'
+
+const Stack = createNativeStackNavigator<TRootStackParams>()
 
 export const RootNavigation = () => {
   const [authenticated] = useState(false)
   const [connecting] = useState(false)
 
   if (connecting) {
-    //Todo: handle loading component for loading state
+    //TODO: handle loading component for loading state
     return null
   }
 
-  //Todo : handle authentication
-
-  if (!authenticated) {
-    return (
-      <NavigationContainer>
-        <AuthNavigation />
-      </NavigationContainer>
-    )
-  }
-
+  //TODO : handle authentication
   return (
-    <NavigationContainer>
-      <MainNavigation />
-    </NavigationContainer>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      {authenticated ? (
+        <Stack.Screen name='Main' component={MainNavigation} />
+      ) : (
+        <Stack.Screen name='Auth' component={AuthNavigation} />
+      )}
+    </Stack.Navigator>
   )
 }
