@@ -21,8 +21,7 @@ export const RootNavigation = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}
-    >
+      }}>
       {authenticated ? (
         <Stack.Screen name='Main' component={MainNavigation} />
       ) : (

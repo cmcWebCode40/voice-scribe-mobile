@@ -27,7 +27,7 @@ const styles = (theme: Theme) => {
     subHeading: {
       color: theme.colors.primary,
       fontSize: theme.fontSize.l,
-      fontFamily: theme.fonts.NunitoSans,
+      fontFamily: theme.fonts.NunitoSansBold,
     },
     heading: {
       color: theme.colors.text,
