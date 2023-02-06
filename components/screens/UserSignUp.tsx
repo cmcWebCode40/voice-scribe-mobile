@@ -9,8 +9,7 @@ export const UserSignUp: React.FunctionComponent = () => {
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-      }}
-    >
+      }}>
       <Text>SignUp</Text>
     </View>
   )

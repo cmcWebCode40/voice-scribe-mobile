@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { DASHBOARD, PROFILE } from 'libs/constants'
 import React from 'react'
-import { Home, UserProfile } from 'screens'
+
+import { Home, UserProfile } from 'components/screens'
 
 const Tab = createBottomTabNavigator()
 

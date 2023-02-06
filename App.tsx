@@ -1,12 +1,20 @@
-import { NavigationContainer } from '@react-navigation/native'
+import { AppContext } from 'libs/contexts'
+import { useLoadFonts } from 'libs/hooks/useLoadFonts'
 import React from 'react'
 
-import { RootNavigation } from './navigations'
+import { RootNavigation } from './components/navigations'
 
-export default function App() {
+const App: React.FunctionComponent = () => {
+  const { fontsLoaded } = useLoadFonts()
+
+  if (!fontsLoaded) {
+    return null
+  }
   return (
-    <NavigationContainer>
+    <AppContext>
       <RootNavigation />
-    </NavigationContainer>
+    </AppContext>
   )
 }
+
+export default App

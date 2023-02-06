@@ -1,10 +1,10 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export const UserProfile: React.FunctionComponent = () => {
+export const Home: React.FunctionComponent = () => {
   return (
     <View>
-      <Text>Profile</Text>
+      <Text>Customization</Text>
     </View>
   )
 }

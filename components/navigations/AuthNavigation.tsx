@@ -2,7 +2,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { SIGNIN_SCREEN, SIGNUP_SCREEN } from 'libs/constants'
 import { TAuthNavigation } from 'libs/types'
 import React from 'react'
-import { UserSignUp } from 'screens'
+
+import { UserSignUp } from 'components/screens'
 
 const Stack = createNativeStackNavigator<TAuthNavigation>()
 
