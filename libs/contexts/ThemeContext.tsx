@@ -22,8 +22,7 @@ type ThemeContextProvider = {
 
 export const ThemeContext = createContext<DefaultContext>({
   mode: 'light',
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onSwitchTheme: () => {},
+  onSwitchTheme: (mode: ThemeMode) => mode,
   theme: getTheme('dark') as Theme,
 })
 
