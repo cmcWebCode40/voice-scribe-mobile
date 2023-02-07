@@ -1,3 +1,5 @@
+import 'libs/locales'
+
 import { AppContext } from 'libs/contexts'
 import { useLoadFonts } from 'libs/hooks/useLoadFonts'
 import React from 'react'

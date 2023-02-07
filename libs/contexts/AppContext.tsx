@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 
+import { LocalizationContextProvider } from './LocalizationContext'
 import { ThemeContextProvider } from './ThemeContext'
 
 type AppContextProps = {
@@ -11,7 +12,9 @@ export const AppContext: React.FunctionComponent<AppContextProps> = ({
 }) => {
   return (
     <ThemeContextProvider>
-      <NavigationContainer>{children}</NavigationContainer>
+      <LocalizationContextProvider>
+        <NavigationContainer>{children}</NavigationContainer>
+      </LocalizationContextProvider>
     </ThemeContextProvider>
   )
 }

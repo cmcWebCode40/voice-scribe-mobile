@@ -1,18 +1,18 @@
 import { useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { StyleSheet, Text, View } from 'react-native'
 
 export const UserProfile: React.FunctionComponent = () => {
+  const { t: translate } = useTranslation()
   const style = useThemedStyles(styles)
   return (
     <View style={style.container}>
-      <Text style={style.subHeading}>Customization</Text>
-      <Text style={style.heading}>Customizing Colors</Text>
+      <Text style={style.subHeading}>{translate('Dashboard.subHeading')}</Text>
+      <Text style={style.heading}>{translate('Dashboard.title')}</Text>
       <Text style={style.description}>
-        Tailwind includes an expertly-crafted default color palette
-        out-of-the-box that is a great starting point if you don’t have your own
-        specific branding in mind.
+        {translate('Dashboard.description')}
       </Text>
     </View>
   )
@@ -31,9 +31,13 @@ const styles = (theme: Theme) => {
     },
     heading: {
       color: theme.colors.text,
+      fontSize: theme.fontSize.xl,
+      fontFamily: theme.fonts.NunitoSansBold,
     },
     description: {
       color: theme.colors.textSecondary,
+      fontSize: theme.fontSize.l,
+      fontFamily: theme.fonts.NunitoSans,
     },
   })
 }
