@@ -1,6 +1,9 @@
 import React from 'react'
-import { Text } from 'react-native'
 
-export const Button = () => {
-  return <Text>Label</Text>
+import { ButtonBase } from './ButtonBase'
+
+type ButtonProps = React.ComponentPropsWithoutRef<typeof ButtonBase>
+
+export const Button: React.FunctionComponent<ButtonProps> = (props) => {
+  return <ButtonBase {...props} />
 }
