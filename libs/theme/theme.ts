@@ -29,6 +29,17 @@ export const theme = {
     xxl: 24,
     xxxl: 36,
   },
+  radius: {
+    none: 0,
+    sm: 2,
+    rounded: 4,
+    md: 6,
+    lg: 8,
+    xl: 12,
+    xxl: 16,
+    xxxl: 24,
+    full: 9999,
+  },
 }
 
 export type Theme = typeof theme
