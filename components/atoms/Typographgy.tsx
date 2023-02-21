@@ -16,7 +16,12 @@ export const Typographgy: React.FunctionComponent<TypographgyProps> = ({
   ...otherProps
 }) => {
   const BaseStyles = useThemedStyles(styles)
-  return <Text style={[BaseStyles[variant], style]} {...otherProps} />
+  return (
+    <Text
+      style={[BaseStyles.container, BaseStyles[variant], style]}
+      {...otherProps}
+    />
+  )
 }
 
 const styles = (theme: Theme) => {
@@ -28,6 +33,7 @@ const styles = (theme: Theme) => {
       fontSize: theme.fontSize.xxl,
       fontFamily: theme.fonts.NunitoSansBold,
       fontWeight: '700',
+      color: theme.colors.text,
     },
     h2: {
       fontSize: theme.fontSize.xl,
