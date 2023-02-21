@@ -42,8 +42,7 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
   return (
     <AuthenticationFormWrapper title={formTitle}>
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={style.container}>
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View>
             <TextInput style={style.input} placeholder={namePlaceHolder} />

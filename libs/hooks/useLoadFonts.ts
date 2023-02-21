@@ -1,22 +1,26 @@
-import { useFonts } from 'expo-font'
+import * as Font from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
-import { useCallback } from 'react'
 
 export const useLoadFonts = () => {
-  const [fontsLoaded] = useFonts({
-    NunitoSans: require('../../assets/fonts/NunitoSans-Regular.ttf'),
-    NunitoSansBold: require('../../assets/fonts/NunitoSans-Bold.ttf'),
-    NunitoSansSemiBold: require('../../assets/fonts/NunitoSans-SemiBold.ttf'),
-  })
+  const loadFonts = async () => {
+    const NunitoSans = require('../../assets/fonts/NunitoSans-Regular.ttf')
+    const NunitoSansBold = require('../../assets/fonts/NunitoSans-Bold.ttf')
+    const NunitoSansSemiBold = require('../../assets/fonts/NunitoSans-SemiBold.ttf')
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
+    try {
+      await Promise.all([
+        Font.loadAsync({ NunitoSans }),
+        Font.loadAsync({ NunitoSansSemiBold }),
+        Font.loadAsync({ NunitoSansBold }),
+      ])
+    } catch (error) {
+      // TODO : add error loggin service report
+    } finally {
       await SplashScreen.hideAsync()
     }
-  }, [fontsLoaded])
+  }
 
   return {
-    fontsLoaded,
-    onLayoutRootView,
+    loadFonts,
   }
 }
