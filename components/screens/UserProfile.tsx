@@ -1,31 +1,35 @@
-import { useThemedStyles } from 'libs/hooks'
-import { Theme } from 'libs/theme'
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { getProfile } from 'libs/mock/profile'
+import { Profile } from 'libs/types'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 
-import { Typographgy } from 'components/atoms'
+import { AchievedGoals, ProfileInformation } from 'components/molecules'
 
 export const UserProfile: React.FunctionComponent = () => {
-  const { t: translate } = useTranslation()
-  const style = useThemedStyles(styles)
+  const [profile, setProfile] = useState<Profile | undefined>()
+
+  useEffect(() => {
+    const loadProfile = async () => {
+      setProfile(await getProfile())
+    }
+    loadProfile()
+  }, [])
+
+  if (!profile) {
+    //TODO: handle loading and error state
+    return null
+  }
+
   return (
-    <View style={style.container}>
-      <Typographgy style={style.subHeading} variant='h3'>
-        {translate('Dashboard.subHeading')}
-      </Typographgy>
+    <View style={styles.container}>
+      <ProfileInformation profile={profile} />
+      <AchievedGoals />
     </View>
   )
 }
 
-const styles = (theme: Theme) => {
-  return StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: theme.colors.background,
-    },
-    subHeading: {
-      color: theme.colors.primary,
-    },
-  })
-}
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+  },
+})
