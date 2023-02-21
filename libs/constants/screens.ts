@@ -1,5 +1,5 @@
-export const SIGNIN_SCREEN = 'UserSignIn'
-export const SIGNUP_SCREEN = 'UserSignUp'
+export const AUTH_SCREEN = 'Authentication'
 export const PROFILE = 'Profile'
-export const DASHBOARD = 'Dashboard'
+export const DASHBOARD = 'MyFiles'
 export const SETTINGS = 'Settings'
+export const LIBRARY = 'Library'
