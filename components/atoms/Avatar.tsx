@@ -6,7 +6,7 @@ import { Image, ImageProps, StyleSheet } from 'react-native'
 import { Icon } from './Icon'
 
 type AvatarProps = {
-  uri: string
+  uri?: string
 } & Omit<ImageProps, 'source'>
 
 export const Avatar: React.FunctionComponent<AvatarProps> = ({

@@ -1,7 +1,23 @@
 {
-  "Dashboard": {
-    "subHeading":"Customization",
-    "title": "Dashboard Screen",
-    "description":"Tailwind includes an expertly-crafted default color palette out-of-the-box that is a great starting point if you don’t have your own specific branding in mind."
+  "Profile": {
+    "achievedGoalsHeading":"Achieve goals",
+    "achievedGoalCaption":"See your all your wins"
+  },
+  "CreateAccount": {
+    "formTitle":"Sign Up",
+    "namePlaceHolder":"Enter your name",
+    "emailPlaceHolder":"Enter your email address",
+    "passwordPlaceHolder":"Enter your password",
+    "confirmPasswordPlaceHolder":"Confirm password",
+    "buttonLabel":"Create Account",
+    "DontHaveAccountMessage":"Already have an account? Login",
+    "formFooterLabel":"By siginin up you agree to our terms and conditons and provacy policy"
+  },
+  "Login": {
+    "formTitle":"Sign In",
+    "emailPlaceHolder":"Enter your email address",
+    "passwordPlaceHolder":"Enter your password",
+    "buttonLabel":"Login",
+    "formFooterLabel":"Dont't have an account ? Create account"
   }
 }

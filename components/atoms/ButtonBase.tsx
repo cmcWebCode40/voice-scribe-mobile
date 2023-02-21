@@ -1,7 +1,9 @@
 import { useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
 import React from 'react'
-import { Pressable, PressableProps, StyleSheet, Text } from 'react-native'
+import { Pressable, PressableProps, StyleSheet, TextStyle } from 'react-native'
+
+import { Typographgy } from './Typographgy'
 
 type ButtonVariant = 'text' | 'contained' | 'outlined'
 type ButtonSize = 'small' | 'medium' | 'large'
@@ -10,6 +12,7 @@ type ButtonBaseProps = {
   variant?: ButtonVariant
   size?: ButtonSize
   children: React.ReactNode
+  TypographgyStyles?: TextStyle
 } & PressableProps
 
 export const ButtonBase: React.FunctionComponent<ButtonBaseProps> = ({
@@ -18,6 +21,7 @@ export const ButtonBase: React.FunctionComponent<ButtonBaseProps> = ({
   variant,
   children,
   disabled,
+  TypographgyStyles,
   ...otherProps
 }) => {
   const baseStyle = useThemedStyles(styles)
@@ -60,13 +64,15 @@ export const ButtonBase: React.FunctionComponent<ButtonBaseProps> = ({
         },
       ]}
       {...otherProps}>
-      <Text
+      <Typographgy
+        variant='p2'
         style={[
           textStyle.content,
+          TypographgyStyles,
           variant === 'contained' ? textStyle.light : textStyle.dark,
         ]}>
         {children}
-      </Text>
+      </Typographgy>
     </Pressable>
   )
 }

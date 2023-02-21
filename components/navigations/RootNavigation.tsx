@@ -8,7 +8,7 @@ import { MainNavigation } from './MainNavigation'
 const Stack = createNativeStackNavigator<TRootStackParams>()
 
 export const RootNavigation = () => {
-  const [authenticated] = useState(true)
+  const [authenticated] = useState(false)
   const [connecting] = useState(false)
 
   if (connecting) {

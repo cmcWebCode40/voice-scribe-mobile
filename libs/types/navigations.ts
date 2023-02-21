@@ -1,6 +1,5 @@
 export type TAuthNavigation = {
-  UserSignIn: undefined
-  UserSignUp: undefined
+  Authentication: undefined
 }
 
 export type TDashboardNaviagtion = {
@@ -9,7 +8,7 @@ export type TDashboardNaviagtion = {
 }
 
 export type TMainNavigation = {
-  Dashboard: TDashboardNaviagtion
+  MyFiles: TDashboardNaviagtion
   Settings: undefined
 }
 
