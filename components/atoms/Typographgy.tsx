@@ -30,19 +30,19 @@ const styles = (theme: Theme) => {
       color: theme.colors.text,
     },
     h1: {
-      fontSize: theme.fontSize.xxl,
+      fontSize: theme.fontSize.xxxl,
       fontFamily: theme.fonts.NunitoSansBold,
       fontWeight: '700',
       color: theme.colors.text,
     },
     h2: {
-      fontSize: theme.fontSize.xl,
+      fontSize: theme.fontSize.xxl,
       fontFamily: theme.fonts.NunitoSansBold,
-      fontWeight: '700',
+      fontWeight: '900',
     },
     h3: {
       fontSize: theme.fontSize.l,
-      fontFamily: theme.fonts.NunitoSans,
+      fontFamily: theme.fonts.NunitoSansBold,
       fontWeight: '700',
     },
     h4: {
