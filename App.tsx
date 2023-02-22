@@ -4,6 +4,8 @@ import { AppContext } from 'libs/contexts'
 import { usePrepareApp } from 'libs/hooks'
 import React from 'react'
 
+import { ErrorBoundary } from 'components/molecules'
+
 import { RootNavigation } from './components/navigations'
 
 const App: React.FunctionComponent = () => {
@@ -13,9 +15,11 @@ const App: React.FunctionComponent = () => {
     return null
   }
   return (
-    <AppContext>
-      <RootNavigation />
-    </AppContext>
+    <ErrorBoundary>
+      <AppContext>
+        <RootNavigation />
+      </AppContext>
+    </ErrorBoundary>
   )
 }
 
