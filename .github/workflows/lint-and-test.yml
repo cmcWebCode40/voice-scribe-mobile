@@ -2,11 +2,11 @@ name: CI
 on:
   push:
     branches:
-      - "**"
+      - '**'
 
   pull_request:
-    branches: 
-      - "**"
+    branches:
+      - '**'
 
   workflow_dispatch:
 
@@ -34,8 +34,11 @@ jobs:
       - name: Install Node Modules
         run: yarn install
 
+      - name: Check Typescript
+        run: yarn ts:check
+        
       - name: Run Lint
         run: yarn lint
 
       - name: Run tests
-        run: yarn test 
+        run: yarn test

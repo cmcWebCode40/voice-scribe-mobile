@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build on EAS
-      # eas build for the ios requires an apple ID reqistered with the apple developer program
-      # Currently buiding for android using the eas build 
-      # TODO: Create developer account for both ios and google developer platform and update the (Build on EAS) job for building for all plaform and all profiles , addtionally add job (Sumbit on EAS) for submitting a sign app store ready build. 
+        # eas build for the ios requires an apple ID reqistered with the apple developer program
+        # Currently buiding for android using the eas build
+        # TODO: Create developer account for both ios and google developer platform and update the (Build on EAS) job for building for all plaform and all profiles , addtionally add job (Sumbit on EAS) for submitting a sign app store ready build.
         run: eas build --profile --platform android --non-interactive
