@@ -1,6 +1,6 @@
 import { useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
-import { AuthenticationMode } from 'libs/types'
+import { AuthenticationMode, EAuthenticationMode } from 'libs/types'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -36,7 +36,7 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
   const buttonLabel = translation('CreateAccount.buttonLabel')
   const formFooterLabel = translation('CreateAccount.formFooterLabel')
   const DontHaveAccountMessage = translation(
-    'CreateAccount.DontHaveAccountMessage'
+    'CreateAccount.dontHaveAccountMessage'
   )
 
   return (
@@ -58,7 +58,7 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
             <View>
               <Button
                 onPress={() => {
-                  handleAuthMode('login')
+                  handleAuthMode(EAuthenticationMode.LOGIN)
                 }}
                 TypographgyStyles={style.footerButton}
                 variant='text'>

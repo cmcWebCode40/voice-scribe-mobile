@@ -20,7 +20,9 @@ export const ProfileInformation: React.FunctionComponent<
       <View>
         <Avatar style={style.avatar} uri={profile?.avatar} />
       </View>
-      <Typographgy variant='h1'>{profile?.name}</Typographgy>
+      <Typographgy variant='h2' style={style.profileName}>
+        {profile?.name}
+      </Typographgy>
       <Typographgy style={style.profileLevel} variant='p1'>
         {profile?.level}
       </Typographgy>
@@ -37,6 +39,9 @@ const styles = (theme: Theme) => {
     avatar: {
       height: 100,
       width: 100,
+    },
+    profileName: {
+      marginVertical: 4,
     },
     profileLevel: {
       textAlign: 'center',

@@ -1,6 +1,6 @@
 import { useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
-import { AuthenticationMode } from 'libs/types'
+import { AuthenticationMode, EAuthenticationMode } from 'libs/types'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -46,7 +46,7 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
             <View>
               <Button
                 onPress={() => {
-                  handleAuthMode('sign-up')
+                  handleAuthMode(EAuthenticationMode.SIGNUP)
                 }}
                 TypographgyStyles={style.footerButton}
                 variant='text'>
