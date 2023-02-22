@@ -1,7 +1,8 @@
 import { useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
-import { AuthenticationMode } from 'libs/types'
+import { AuthenticationMode, EAuthenticationMode } from 'libs/types'
 import React, { useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 
 import AppLogo from 'assets/images/authentication_screen_image.svg'
@@ -15,6 +16,7 @@ export const Authentication: React.FunctionComponent = () => {
   const [authenticatonMode, setAuthenticatonMode] = useState<
     AuthenticationMode | undefined
   >(undefined)
+  const { t: translation } = useTranslation()
 
   const handleOpenModal = useCallback(() => {
     setOpenModal(true)
@@ -38,32 +40,36 @@ export const Authentication: React.FunctionComponent = () => {
         <AppLogo width={150} height={150} />
       </View>
       <View style={style.typographyContainer}>
-        <Typographgy variant='h1'>Login or Create Account</Typographgy>
-        <Typographgy variant='p1'>to quickly get started</Typographgy>
+        <Typographgy variant='h2'>
+          {translation('Authentication.title')}
+        </Typographgy>
+        <Typographgy variant='p1'>
+          {translation('Authentication.message')}
+        </Typographgy>
       </View>
       <View style={style.buttonContainer}>
         <Button
           variant='contained'
           onPress={() => {
-            handleAuthenticationMode('sign-up')
+            handleAuthenticationMode(EAuthenticationMode.SIGNUP)
           }}>
-          Create account
+          {translation('Authentication.CreateAccountButtonLabel')}
         </Button>
         <Button
           onPress={() => {
-            handleAuthenticationMode('login')
+            handleAuthenticationMode(EAuthenticationMode.LOGIN)
           }}>
-          Login
+          {translation('Authentication.LoginButtonLabel')}
         </Button>
       </View>
       <Modal visible={openModal} onClose={handleClosModal}>
-        {authenticatonMode === 'login' && (
+        {authenticatonMode === EAuthenticationMode.LOGIN && (
           <Login
             onClose={handleClosModal}
             handleAuthMode={handleAuthenticationMode}
           />
         )}
-        {authenticatonMode === 'sign-up' && (
+        {authenticatonMode === EAuthenticationMode.SIGNUP && (
           <CreateAccount
             onClose={handleClosModal}
             handleAuthMode={handleAuthenticationMode}

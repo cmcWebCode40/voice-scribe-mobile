@@ -1,23 +1,48 @@
 {
   "Profile": {
-    "achievedGoalsHeading":"Achieve goals",
-    "achievedGoalCaption":"See your all your wins"
+    "achievedGoalsHeading": "Achieve goals",
+    "achievedGoalCaption": "See your all your wins"
   },
   "CreateAccount": {
-    "formTitle":"Sign Up",
-    "namePlaceHolder":"Enter your name",
-    "emailPlaceHolder":"Enter your email address",
-    "passwordPlaceHolder":"Enter your password",
-    "confirmPasswordPlaceHolder":"Confirm password",
-    "buttonLabel":"Create Account",
-    "DontHaveAccountMessage":"Already have an account? Login",
-    "formFooterLabel":"By siginin up you agree to our terms and conditons and provacy policy"
+    "formTitle": "Sign Up",
+    "namePlaceHolder": "Enter your name",
+    "emailPlaceHolder": "Enter your email address",
+    "passwordPlaceHolder": "Enter your password",
+    "confirmPasswordPlaceHolder": "Confirm password",
+    "buttonLabel": "Create Account",
+    "dontHaveAccountMessage": "Already have an account? Login",
+    "formFooterLabel": "By siginin up you agree to our terms and conditons and provacy policy"
   },
   "Login": {
-    "formTitle":"Sign In",
-    "emailPlaceHolder":"Enter your email address",
-    "passwordPlaceHolder":"Enter your password",
-    "buttonLabel":"Login",
-    "formFooterLabel":"Dont't have an account ? Create account"
+    "formTitle": "Sign In",
+    "emailPlaceHolder": "Enter your email address",
+    "passwordPlaceHolder": "Enter your password",
+    "buttonLabel": "Login",
+    "formFooterLabel": "Dont't have an account ? Create account"
+  },
+  "CustomFallBack": {
+    "title": "Oops Something happened!",
+    "message": "please click the reset button to return to your dashboard",
+    "buttonLabel": "Reset"
+  },
+  "Authentication": {
+    "title": "Login or Create Account",
+    "message": "to quickly get started",
+    "CreateAccountButtonLabel": "Create account",
+    "LoginButtonLabel": "Login"
+  },
+  "SettingsAccountSection": {
+    "logoutTitle": "Logout account",
+    "deleteAccountTitle": "Delete account"
+  },
+  "SettingAboutSection": {
+    "shareTitle": "Share app to friends",
+    "dropFeedBackTitle": "Give us feedback",
+    "dropFeedBackCaption": "we appreciate feedback from our users"
+  },
+  "Settings":{
+    "settingTitle":"Settings",
+    "AboutUsSectionTitle":"About us",
+    "AccountSectionTitle":"Account"
   }
 }

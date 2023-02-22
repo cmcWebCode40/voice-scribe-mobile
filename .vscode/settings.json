@@ -1,5 +1,3 @@
 {
-  "i18n-ally.localesPaths": [
-    "libs/locales"
-  ]
+  "i18n-ally.localesPaths": ["libs/locales"]
 }

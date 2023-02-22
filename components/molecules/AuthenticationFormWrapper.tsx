@@ -16,7 +16,7 @@ export const AuthenticationFormWrapper: React.FunctionComponent<
   return (
     <View style={style.container} {...otherProps}>
       <View style={style.titleContainer}>
-        <Typographgy variant='h1'>{title}</Typographgy>
+        <Typographgy variant='h2'>{title}</Typographgy>
       </View>
       {children}
     </View>

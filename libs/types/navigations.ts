@@ -1,18 +1,18 @@
-export type TAuthNavigation = {
+export type AuthNavigationScreens = {
   Authentication: undefined
 }
 
-export type TDashboardNaviagtion = {
+export type DashboardNaviagtionScreens = {
   Dashboard: undefined
   Profile: undefined
 }
 
-export type TMainNavigation = {
-  MyFiles: TDashboardNaviagtion
+export type MainNavigationScreens = {
+  MyFiles: DashboardNaviagtionScreens
   Settings: undefined
 }
 
 export type TRootStackParams = {
-  Main: TMainNavigation
-  Auth: TAuthNavigation
+  Main: MainNavigationScreens
+  Auth: AuthNavigationScreens
 }

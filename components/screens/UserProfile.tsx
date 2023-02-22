@@ -1,12 +1,26 @@
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { SETTINGS } from 'libs/constants'
 import { getProfile } from 'libs/mock/profile'
-import { Profile } from 'libs/types'
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { MainNavigationScreens, Profile } from 'libs/types'
+import React, { useCallback, useEffect, useState } from 'react'
+import { SafeAreaView, StyleSheet, View } from 'react-native'
 
-import { AchievedGoals, ProfileInformation } from 'components/molecules'
+import { Icon } from 'components/atoms'
+import {
+  AchievedGoals,
+  NavigationHeader,
+  ProfileInformation,
+} from 'components/molecules'
 
 export const UserProfile: React.FunctionComponent = () => {
   const [profile, setProfile] = useState<Profile | undefined>()
+  const navigation =
+    useNavigation<NativeStackNavigationProp<MainNavigationScreens>>()
+
+  const handleNavigation = useCallback(() => {
+    navigation.navigate(SETTINGS)
+  }, [navigation])
 
   useEffect(() => {
     const loadProfile = async () => {
@@ -21,15 +35,20 @@ export const UserProfile: React.FunctionComponent = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <ProfileInformation profile={profile} />
-      <AchievedGoals />
-    </View>
+    <SafeAreaView>
+      <NavigationHeader
+        rightIcon={<Icon name='setting' onPress={handleNavigation} />}
+      />
+      <View style={styles.content}>
+        <ProfileInformation profile={profile} />
+        <AchievedGoals />
+      </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  content: {
     padding: 16,
   },
 })

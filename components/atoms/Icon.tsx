@@ -13,11 +13,13 @@ type AntDesignIconName = 'addfile' | 'user' | 'search1' | 'delete' | 'setting'
 type SimpleLineIconsIconName = 'logout'
 
 type IonIconsName =
-  | 'share-outline'
   | 'reader-outline'
   | 'add'
   | 'bulb-outline'
   | 'close'
+  | 'chevron-back'
+  | 'chevron-forward'
+  | 'share-outline'
 
 type typeIconName =
   | FontAwesome5IconsName
@@ -25,11 +27,16 @@ type typeIconName =
   | SimpleLineIconsIconName
   | IonIconsName
 
+// type IconMainProps = React.ComponentPropsWithRef<
+//   typeof AntDesign | typeof FontAwesome5 | typeof Ionicons
+// >
 type IconProps = {
   name: typeIconName
   size?: number
   color?: string
+  onPress?: () => void
 }
+// & IconMainProps
 
 export const Icon: React.FunctionComponent<IconProps> = ({
   color,
@@ -58,6 +65,10 @@ export const Icon: React.FunctionComponent<IconProps> = ({
     case 'bulb-outline':
       return <Ionicons name={name} size={size} color={color} {...otherProps} />
     case 'close':
+      return <Ionicons name={name} size={size} color={color} {...otherProps} />
+    case 'chevron-back':
+      return <Ionicons name={name} size={size} color={color} {...otherProps} />
+    case 'chevron-forward':
       return <Ionicons name={name} size={size} color={color} {...otherProps} />
     case 'delete':
       return <AntDesign name={name} size={size} color={color} {...otherProps} />

@@ -6,7 +6,7 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 
 import { Icon } from 'components/atoms'
-import { Home, UserProfile } from 'components/screens'
+import { Home, Library, UserProfile } from 'components/screens'
 
 const Tab = createBottomTabNavigator()
 
@@ -37,7 +37,7 @@ export const Dashboard = () => {
       />
       <Tab.Screen
         name={LIBRARY}
-        component={UserProfile}
+        component={Library}
         options={{
           tabBarLabelStyle,
           tabBarIcon: ({ focused }) => (
