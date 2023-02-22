@@ -1,0 +1,19 @@
+name: CreateRelease
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Release
+        id: create_release
+        uses: zendesk/action-create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_schema: semantic
