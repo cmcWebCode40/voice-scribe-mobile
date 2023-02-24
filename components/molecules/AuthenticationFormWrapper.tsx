@@ -1,6 +1,14 @@
 import { useThemedStyles } from 'libs/hooks'
 import React from 'react'
-import { StyleSheet, View, ViewProps } from 'react-native'
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+  ViewProps,
+} from 'react-native'
 
 import { Typographgy } from 'components/atoms'
 
@@ -18,7 +26,12 @@ export const AuthenticationFormWrapper: React.FunctionComponent<
       <View style={style.titleContainer}>
         <Typographgy variant='h2'>{title}</Typographgy>
       </View>
-      {children}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          {children}
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </View>
   )
 }

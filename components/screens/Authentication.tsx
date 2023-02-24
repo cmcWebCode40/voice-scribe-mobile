@@ -9,6 +9,7 @@ import AppLogo from 'assets/images/authentication_screen_image.svg'
 import { Button, Typographgy } from 'components/atoms'
 import { Modal } from 'components/molecules'
 import { CreateAccount, Login } from 'components/organisms'
+import { ForgotPassword } from 'components/organisms/ForgotPassword'
 
 export const Authentication: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
@@ -74,6 +75,9 @@ export const Authentication: React.FunctionComponent = () => {
             onClose={handleClosModal}
             handleAuthMode={handleAuthenticationMode}
           />
+        )}
+        {authenticatonMode === EAuthenticationMode.PASSWORD_RESET && (
+          <ForgotPassword />
         )}
       </Modal>
     </SafeAreaView>
