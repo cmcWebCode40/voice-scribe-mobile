@@ -1,6 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { useAuth } from 'libs/hooks'
 import { TRootStackParams } from 'libs/types'
-import React, { useState } from 'react'
+import React from 'react'
+import { Text, View } from 'react-native'
 
 import { AuthNavigation } from './AuthNavigation'
 import { MainNavigation } from './MainNavigation'
@@ -8,13 +10,15 @@ import { MainNavigation } from './MainNavigation'
 const Stack = createNativeStackNavigator<TRootStackParams>()
 
 export const RootNavigation = () => {
-  const [authenticated] = useState(true)
-  const [connecting] = useState(false)
+  const { session } = useAuth()
 
-  if (connecting) {
-    //TODO: handle loading component for loading state
-    return null
-  }
+  // if (isProcessing) {
+  //   return (
+  //     <View>
+  //       <Text>Loading....</Text>
+  //     </View>
+  //   )
+  // }
 
   //TODO : handle authentication
   return (
@@ -22,10 +26,10 @@ export const RootNavigation = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      {authenticated ? (
-        <Stack.Screen name='Main' component={MainNavigation} />
-      ) : (
+      {!session ? (
         <Stack.Screen name='Auth' component={AuthNavigation} />
+      ) : (
+        <Stack.Screen name='Main' component={MainNavigation} />
       )}
     </Stack.Navigator>
   )

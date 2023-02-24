@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { DASHBOARD, LIBRARY, PROFILE } from 'libs/constants'
+import { LIBRARY, MY_FILES, PROFILE } from 'libs/constants'
 import { useTheme, useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
 import React from 'react'
@@ -21,7 +21,7 @@ export const Dashboard = () => {
         tabBarStyle,
       }}>
       <Tab.Screen
-        name={DASHBOARD}
+        name={MY_FILES}
         options={{
           tabBarLabelStyle,
           tabBarIcon: ({ focused }) => (
