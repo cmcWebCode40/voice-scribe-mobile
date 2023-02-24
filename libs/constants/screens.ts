@@ -1,5 +1,7 @@
 export const AUTH_SCREEN = 'Authentication'
 export const PROFILE = 'Profile'
-export const DASHBOARD = 'MyFiles'
+export const DASHBOARD = 'Dashboard'
+export const MY_FILES = 'MyFiles'
 export const SETTINGS = 'Settings'
 export const LIBRARY = 'Library'
+export const EDIT_PROFILE = 'EditProfile'

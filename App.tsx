@@ -12,6 +12,7 @@ const App: React.FunctionComponent = () => {
   const { isAppReady } = usePrepareApp()
 
   if (!isAppReady) {
+    //TODO: add error screen if  app fails initialise
     return null
   }
   return (

@@ -56,6 +56,7 @@ export const ButtonBase: React.FunctionComponent<ButtonBaseProps> = ({
 
   return (
     <Pressable
+      disabled={disabled}
       style={({ pressed }) => [
         baseStyle.container,
         {

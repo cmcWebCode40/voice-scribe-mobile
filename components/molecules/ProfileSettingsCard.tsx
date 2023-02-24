@@ -1,7 +1,7 @@
 import { useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
 import React from 'react'
-import { Pressable, StyleSheet, View, ViewProps } from 'react-native'
+import { Pressable, PressableProps, StyleSheet, View } from 'react-native'
 
 import { Icon, Typographgy } from 'components/atoms'
 
@@ -9,7 +9,7 @@ type ProfileSettingsCardProps = {
   icon?: React.ReactElement
   title?: string
   caption?: string
-} & ViewProps
+} & PressableProps
 
 export const ProfileSettingsCard: React.FunctionComponent<
   ProfileSettingsCardProps
