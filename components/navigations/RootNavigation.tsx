@@ -2,7 +2,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useAuth } from 'libs/hooks'
 import { TRootStackParams } from 'libs/types'
 import React from 'react'
-import { Text, View } from 'react-native'
 
 import { AuthNavigation } from './AuthNavigation'
 import { MainNavigation } from './MainNavigation'

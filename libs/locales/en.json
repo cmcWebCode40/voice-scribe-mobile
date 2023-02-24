@@ -18,7 +18,7 @@
     "emailPlaceHolder": "email@address.com",
     "passwordPlaceHolder": "Enter your password",
     "buttonLabel": "Login",
-    "forgotPasswordLabel":"Forgot password ? reset here",
+    "forgotPasswordLabel": "Forgot password ? reset here",
     "formFooterLabel": "Dont't have an account ? Create account"
   },
   "CustomFallBack": {
@@ -41,21 +41,20 @@
     "dropFeedBackTitle": "Give us feedback",
     "dropFeedBackCaption": "we appreciate feedback from our users"
   },
-  "Settings":{
-    "settingTitle":"Settings",
-    "AboutUsSectionTitle":"About us",
-    "AccountSectionTitle":"Account"
+  "Settings": {
+    "settingTitle": "Settings",
+    "AboutUsSectionTitle": "About us",
+    "AccountSectionTitle": "Account"
   },
-  "ForgotPassword":{
-    "formTitle":"Password Reset",
+  "ForgotPassword": {
+    "formTitle": "Password Reset",
     "emailPlaceHolder": "email@address.com",
     "buttonLabel": "Reset Password"
-
   },
-  "EditAccount":{
-    "websitePlaceHolder":"webiste",
-    "usernamePlaceHolder":"username",
-    "emailPlaceHolder":"email",
-    "buttonLabel":"Update"
+  "EditAccount": {
+    "websitePlaceHolder": "webiste",
+    "usernamePlaceHolder": "username",
+    "emailPlaceHolder": "email",
+    "buttonLabel": "Update"
   }
 }
