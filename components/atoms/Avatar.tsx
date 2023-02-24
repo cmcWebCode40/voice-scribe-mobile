@@ -6,7 +6,7 @@ import { Image, ImageProps, StyleSheet } from 'react-native'
 import { Icon } from './Icon'
 
 type AvatarProps = {
-  uri?: string
+  uri?: string | undefined
 } & Omit<ImageProps, 'source'>
 
 export const Avatar: React.FunctionComponent<AvatarProps> = ({
@@ -19,7 +19,12 @@ export const Avatar: React.FunctionComponent<AvatarProps> = ({
     return <Icon name='user-circle' size={64} />
   }
   return (
-    <Image style={[ImageStyle.image, style]} {...otherProps} source={{ uri }} />
+    <Image
+      accessibilityLabel='Avatar'
+      style={[ImageStyle.image, style]}
+      {...otherProps}
+      source={{ uri }}
+    />
   )
 }
 
