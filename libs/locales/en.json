@@ -6,7 +6,7 @@
   "CreateAccount": {
     "formTitle": "Sign Up",
     "namePlaceHolder": "Enter your name",
-    "emailPlaceHolder": "Enter your email address",
+    "emailPlaceHolder": "email@address.com",
     "passwordPlaceHolder": "Enter your password",
     "confirmPasswordPlaceHolder": "Confirm password",
     "buttonLabel": "Create Account",
@@ -15,9 +15,10 @@
   },
   "Login": {
     "formTitle": "Sign In",
-    "emailPlaceHolder": "Enter your email address",
+    "emailPlaceHolder": "email@address.com",
     "passwordPlaceHolder": "Enter your password",
     "buttonLabel": "Login",
+    "forgotPasswordLabel":"Forgot password ? reset here",
     "formFooterLabel": "Dont't have an account ? Create account"
   },
   "CustomFallBack": {
@@ -44,5 +45,17 @@
     "settingTitle":"Settings",
     "AboutUsSectionTitle":"About us",
     "AccountSectionTitle":"Account"
+  },
+  "ForgotPassword":{
+    "formTitle":"Password Reset",
+    "emailPlaceHolder": "email@address.com",
+    "buttonLabel": "Reset Password"
+
+  },
+  "EditAccount":{
+    "websitePlaceHolder":"webiste",
+    "usernamePlaceHolder":"username",
+    "emailPlaceHolder":"email",
+    "buttonLabel":"Update"
   }
 }

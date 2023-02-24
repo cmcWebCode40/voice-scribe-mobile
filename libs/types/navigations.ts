@@ -3,13 +3,14 @@ export type AuthNavigationScreens = {
 }
 
 export type DashboardNaviagtionScreens = {
-  Dashboard: undefined
+  MyFiles: undefined
   Profile: undefined
 }
 
 export type MainNavigationScreens = {
-  MyFiles: DashboardNaviagtionScreens
+  Dashboard: DashboardNaviagtionScreens
   Settings: undefined
+  EditProfile: undefined
 }
 
 export type TRootStackParams = {
