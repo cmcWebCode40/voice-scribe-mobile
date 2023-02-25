@@ -1,8 +1,6 @@
-import { useThemedStyles } from 'libs/hooks'
-import { getProfile } from 'libs/mock'
+import { useAuth, useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
-import { Profile } from 'libs/types'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 
@@ -14,16 +12,9 @@ import {
 } from 'components/organisms'
 
 export const Settings: React.FunctionComponent = () => {
-  const [profile, setProfile] = useState<Profile | undefined>()
   const style = useThemedStyles(styles)
+  const { user } = useAuth()
   const { t: translation } = useTranslation()
-
-  useEffect(() => {
-    const loadProfile = async () => {
-      setProfile(await getProfile())
-    }
-    loadProfile()
-  }, [])
 
   const settingTitle = translation('Settings.settingTitle')
   const AboutUsSectionTitle = translation('Settings.AboutUsSectionTitle')
@@ -37,9 +28,8 @@ export const Settings: React.FunctionComponent = () => {
             {settingTitle}
           </Typographgy>
           <ProfileSettingsCard
-            icon={<Avatar style={style.avatar} uri={profile?.avatar} />}
-            title={profile?.name}
-            caption={profile?.email}
+            icon={<Avatar style={style.avatar} />}
+            title={user?.email}
           />
         </View>
         <View style={style.sectionContainer}>

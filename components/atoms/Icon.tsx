@@ -6,7 +6,7 @@ import {
 } from '@expo/vector-icons'
 import React from 'react'
 
-type FontAwesome5IconsName = 'user-circle'
+type FontAwesome5IconsName = 'user-circle' | 'edit'
 
 type AntDesignIconName = 'addfile' | 'user' | 'search1' | 'delete' | 'setting'
 
@@ -78,14 +78,13 @@ export const Icon: React.FunctionComponent<IconProps> = ({
       return <AntDesign name={name} size={size} color={color} {...otherProps} />
     case 'user':
       return <AntDesign name={name} size={size} color={color} {...otherProps} />
+    case 'edit':
+      return (
+        <FontAwesome5 name={name} size={size} color={color} {...otherProps} />
+      )
     case 'user-circle':
       return (
-        <FontAwesome5
-          name='user-circle'
-          size={size}
-          color={color}
-          {...otherProps}
-        />
+        <FontAwesome5 name={name} size={size} color={color} {...otherProps} />
       )
     default:
       throw new Error('Icon not supported')

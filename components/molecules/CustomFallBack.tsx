@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { StyleSheet, View } from 'react-native'
 import { FallbackComponentProps } from 'react-native-error-boundary'
 
-import AppLogo from 'assets/images/authentication_screen_image.svg'
+import CrashedErrorImage from 'assets/images/app_crashed_error.svg'
 import { Button, Typographgy } from 'components/atoms'
 
 export const CustomFallBack: React.FunctionComponent<
@@ -17,7 +17,7 @@ export const CustomFallBack: React.FunctionComponent<
   return (
     <View style={style.container}>
       <View style={style.imageContainer}>
-        <AppLogo width={150} height={150} />
+        <CrashedErrorImage width={150} height={150} />
       </View>
       <View style={style.typographyContainer}>
         <Typographgy variant='h2'>

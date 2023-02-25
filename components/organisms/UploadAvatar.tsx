@@ -17,13 +17,14 @@ export const UploadAvatar: React.FunctionComponent<UploadAvatarProps> = ({
   ...otherProps
 }) => {
   const [avatarUrl] = useState<string | undefined>(url)
-  const { loadImage } = useUploadAvatar()
+  const { loadImage, uploadAvatar } = useUploadAvatar()
   const { t: translation } = useTranslation()
   const style = useThemedStyles(styles)
 
   const handleAvatar = useCallback(() => {
+    uploadAvatar()
     onUpload('avatarUrl')
-  }, [onUpload])
+  }, [onUpload, uploadAvatar])
 
   useEffect(() => {
     if (url) loadImage(url)
