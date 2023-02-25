@@ -8,35 +8,35 @@
   src="/docs/images/splash_screen.png"
   alt="Alt text"
   title="Optional title"
-  style="margin:0 4px; max-width: 100px"
+  style="margin:0 4px; width: 70px"
 />
 
 <img
   src="/docs/images/auth_screen.png"
   alt="Alt text"
   title="Optional title"
-  style="margin:0 4px; max-width: 100px"
+  style="margin:0 4px; width: 70px"
 />
 
 <img
   src="/docs/images/signup_screen.png"
   alt="Alt text"
   title="Optional title"
-  style="margin:0 4px; max-width: 100px"
+  style="margin:0 4px; width: 70px"
 />
 
 <img
   src="/docs/images/settings_screen.png"
   alt="Alt text"
   title="Optional title"
-  style="margin:0 4px; max-width: 100px"
+  style="margin:0 4px; width: 70px"
 />
 
 <img
   src="/docs/images/profile_screen.png"
   alt="Alt text"
   title="Optional title"
-  style="margin:0 4px; max-width: 100px"
+  style="margin:0 4px; width: 70px"
 />
 
 </div>
