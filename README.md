@@ -2,20 +2,20 @@
 
 > Work in progress
 
-<div style="display: flex">
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr">
 
 <img
   src="/docs/images/splash_screen.png"
   alt="Alt text"
   title="Optional title"
-  style="margin:0 4px; width: 70px"
+  style="margin:0 4px; width: 100px"
 />
 
 <img
   src="/docs/images/auth_screen.png"
   alt="Alt text"
   title="Optional title"
-  style="margin:0 4px; width: 70px"
+  style="margin:0 4px; width: 100px"
 />
 
 <img
@@ -29,14 +29,7 @@
   src="/docs/images/settings_screen.png"
   alt="Alt text"
   title="Optional title"
-  style="margin:0 4px; width: 70px"
-/>
-
-<img
-  src="/docs/images/profile_screen.png"
-  alt="Alt text"
-  title="Optional title"
-  style="margin:0 4px; width: 70px"
+  style="margin:0 4px; width: 100px"
 />
 
 </div>
