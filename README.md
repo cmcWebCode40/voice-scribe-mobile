@@ -2,14 +2,12 @@
 
 > Work in progress
 
-
 <img
   src="/docs/images/app_preview.png"
   alt="Alt text"
   title="Optional title"
   style="margin:0 4px; max-width: 500px"
 />
-
 
 ## Overview
 
