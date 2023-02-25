@@ -2,45 +2,13 @@
 
 > Work in progress
 
-<div style="display: flex">
 
 <img
-  src="/docs/images/splash_screen.png"
+  src="/docs/images/app_preview.png"
   alt="Alt text"
   title="Optional title"
-  style="margin:0 4px; max-width: 100px"
+  style="margin:0 4px; max-width: 500px"
 />
-
-<img
-  src="/docs/images/auth_screen.png"
-  alt="Alt text"
-  title="Optional title"
-  style="margin:0 4px; max-width: 100px"
-/>
-
-<img
-  src="/docs/images/signup_screen.png"
-  alt="Alt text"
-  title="Optional title"
-  style="margin:0 4px; max-width: 100px"
-/>
-
-<img
-  src="/docs/images/settings_screen.png"
-  alt="Alt text"
-  title="Optional title"
-  style="margin:0 4px; max-width: 100px"
-/>
-
-<img
-  src="/docs/images/profile_screen.png"
-  alt="Alt text"
-  title="Optional title"
-  style="margin:0 4px; max-width: 100px"
-/>
-
-</div>
-
 
 
 ## Overview
