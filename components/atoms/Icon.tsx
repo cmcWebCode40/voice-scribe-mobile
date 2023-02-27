@@ -1,5 +1,7 @@
 import {
   AntDesign,
+  Entypo,
+  Feather,
   FontAwesome5,
   Ionicons,
   SimpleLineIcons,
@@ -11,6 +13,8 @@ type FontAwesome5IconsName = 'user-circle' | 'edit'
 type AntDesignIconName = 'addfile' | 'user' | 'search1' | 'delete' | 'setting'
 
 type SimpleLineIconsIconName = 'logout'
+type FeatherIconName = 'more-horizontal'
+type EntypoIconName = 'unread'
 
 type IonIconsName =
   | 'reader-outline'
@@ -26,6 +30,8 @@ type typeIconName =
   | AntDesignIconName
   | SimpleLineIconsIconName
   | IonIconsName
+  | FeatherIconName
+  | EntypoIconName
 
 // type IconMainProps = React.ComponentPropsWithRef<
 //   typeof AntDesign | typeof FontAwesome5 | typeof Ionicons
@@ -78,6 +84,10 @@ export const Icon: React.FunctionComponent<IconProps> = ({
       return <AntDesign name={name} size={size} color={color} {...otherProps} />
     case 'user':
       return <AntDesign name={name} size={size} color={color} {...otherProps} />
+    case 'more-horizontal':
+      return <Feather name={name} size={size} color={color} {...otherProps} />
+    case 'unread':
+      return <Entypo name={name} size={size} color={color} {...otherProps} />
     case 'edit':
       return (
         <FontAwesome5 name={name} size={size} color={color} {...otherProps} />
