@@ -6,12 +6,11 @@ import { signUpSchema } from 'libs/utils'
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Alert, StyleSheet, TextInput, View } from 'react-native'
-import Spinner from 'react-native-loading-spinner-overlay/lib'
 
 import { Button, Typographgy } from 'components/atoms'
 import {
   AuthenticationFormWrapper,
-  LoaderIndicator,
+  LoaderWithOverlay,
 } from 'components/molecules'
 
 type CreateAccount = {
@@ -58,16 +57,15 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
     'CreateAccount.dontHaveAccountMessage'
   )
 
-  const loaderIndicator = <LoaderIndicator />
-
   return (
     <AuthenticationFormWrapper title={formTitle}>
       <View>
-        <Spinner visible={isProcessing} customIndicator={loaderIndicator} />
+        <LoaderWithOverlay isLoading={isProcessing} />
         <Formik
           initialValues={formInitialValues}
           onSubmit={handleCreateAccount}
-          validationSchema={signUpSchema}>
+          validationSchema={signUpSchema}
+        >
           {({
             values,
             isValid,
@@ -131,7 +129,8 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
                     handleSubmit()
                   }}
                   variant='contained'
-                  disabled={!isValid}>
+                  disabled={!isValid}
+                >
                   {buttonLabel}
                 </Button>
               </View>
@@ -141,7 +140,8 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
                     handleAuthMode(EAuthenticationMode.LOGIN)
                   }}
                   TypographgyStyles={style.footerButton}
-                  variant='text'>
+                  variant='text'
+                >
                   {DontHaveAccountMessage}
                 </Button>
               </View>

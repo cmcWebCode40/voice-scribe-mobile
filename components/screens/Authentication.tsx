@@ -53,13 +53,15 @@ export const Authentication: React.FunctionComponent = () => {
           variant='contained'
           onPress={() => {
             handleAuthenticationMode(EAuthenticationMode.SIGNUP)
-          }}>
+          }}
+        >
           {translation('Authentication.CreateAccountButtonLabel')}
         </Button>
         <Button
           onPress={() => {
             handleAuthenticationMode(EAuthenticationMode.LOGIN)
-          }}>
+          }}
+        >
           {translation('Authentication.LoginButtonLabel')}
         </Button>
       </View>

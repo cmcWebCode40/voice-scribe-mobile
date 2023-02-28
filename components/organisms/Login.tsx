@@ -6,12 +6,11 @@ import { signInSchema } from 'libs/utils'
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Alert, StyleSheet, TextInput, View } from 'react-native'
-import Spinner from 'react-native-loading-spinner-overlay/lib'
 
 import { Button, Typographgy } from 'components/atoms'
 import {
   AuthenticationFormWrapper,
-  LoaderIndicator,
+  LoaderWithOverlay,
 } from 'components/molecules'
 
 type CreateAccount = {
@@ -48,15 +47,15 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
   const forgotPasswordLabel = translation('Login.forgotPasswordLabel')
   const formFooterLabel = translation('Login.formFooterLabel')
 
-  const loaderIndicator = <LoaderIndicator />
   return (
     <AuthenticationFormWrapper title={formTitle}>
       <View>
-        <Spinner visible={isProcessing} customIndicator={loaderIndicator} />
+        <LoaderWithOverlay isLoading={isProcessing} />
         <Formik
           initialValues={formInitialValues}
           onSubmit={handleLogin}
-          validationSchema={signInSchema}>
+          validationSchema={signInSchema}
+        >
           {({
             values,
             isValid,
@@ -105,7 +104,8 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
                   variant='contained'
                   onPress={() => {
                     handleSubmit()
-                  }}>
+                  }}
+                >
                   {buttonLabel}
                 </Button>
               </View>
@@ -115,7 +115,8 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
                     handleAuthMode(EAuthenticationMode.SIGNUP)
                   }}
                   TypographgyStyles={style.footerButton}
-                  variant='text'>
+                  variant='text'
+                >
                   {formFooterLabel}
                 </Button>
                 <Button
@@ -123,7 +124,8 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
                     handleAuthMode(EAuthenticationMode.PASSWORD_RESET)
                   }}
                   TypographgyStyles={style.footerButton}
-                  variant='text'>
+                  variant='text'
+                >
                   {forgotPasswordLabel}
                 </Button>
               </View>
