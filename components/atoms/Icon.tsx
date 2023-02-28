@@ -10,7 +10,14 @@ import React from 'react'
 
 type FontAwesome5IconsName = 'user-circle' | 'edit'
 
-type AntDesignIconName = 'addfile' | 'user' | 'search1' | 'delete' | 'setting'
+type AntDesignIconName =
+  | 'addfile'
+  | 'user'
+  | 'search1'
+  | 'delete'
+  | 'setting'
+  | 'play'
+  | 'pausecircle'
 
 type SimpleLineIconsIconName = 'logout'
 type FeatherIconName = 'more-horizontal'
@@ -79,6 +86,10 @@ export const Icon: React.FunctionComponent<IconProps> = ({
     case 'delete':
       return <AntDesign name={name} size={size} color={color} {...otherProps} />
     case 'search1':
+      return <AntDesign name={name} size={size} color={color} {...otherProps} />
+    case 'play':
+      return <AntDesign name={name} size={size} color={color} {...otherProps} />
+    case 'pausecircle':
       return <AntDesign name={name} size={size} color={color} {...otherProps} />
     case 'setting':
       return <AntDesign name={name} size={size} color={color} {...otherProps} />

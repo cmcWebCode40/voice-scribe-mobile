@@ -1,10 +1,13 @@
 import { useThemedStyles } from 'libs/hooks'
 import { mockedReadingFiles } from 'libs/mock'
+import { Theme } from 'libs/theme'
 import React, { useState } from 'react'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 
 import { Icon, IconButton } from 'components/atoms'
 import { ReaderFiles } from 'components/organisms'
+
+import { generateBoxShadowStyle } from '../../styles'
 
 export const Home: React.FunctionComponent = () => {
   const [files] = useState(mockedReadingFiles)
@@ -21,7 +24,7 @@ export const Home: React.FunctionComponent = () => {
   )
 }
 
-const styles = () => {
+const styles = (theme: Theme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -35,15 +38,15 @@ const styles = () => {
       bottom: 24,
       right: 0,
       marginRight: 16,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 3,
-      },
-      shadowOpacity: 0.29,
-      shadowRadius: 4.65,
-
-      elevation: 7,
+      ...generateBoxShadowStyle({
+        elevation: 7,
+        shadowColorAndroid: theme.colors.black,
+        shadowColorIos: theme.colors.black,
+        xOffset: 0,
+        yOffset: 3,
+        shadowOpacity: 0.3,
+        shadowRadius: 4.65,
+      }),
     },
   })
 }

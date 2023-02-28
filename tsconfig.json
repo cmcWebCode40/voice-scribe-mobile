@@ -10,6 +10,7 @@
       "screens/*":["components/screens/*"],
       "navigations/*":["components/navigations/*"],
       "types/*":["libs/types*"],
+      "styles/*":["styles/index.ts"],
 
     },
   },

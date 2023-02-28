@@ -19,7 +19,8 @@ export const ProfileSettingsCard: React.FunctionComponent<
   return (
     <Pressable
       {...otherProps}
-      style={({ pressed }) => [style.container, pressed && style.cardPress]}>
+      style={({ pressed }) => [style.container, pressed && style.cardPress]}
+    >
       <View style={style.content}>
         <View style={style.assetContainer}>{icon}</View>
         <View>

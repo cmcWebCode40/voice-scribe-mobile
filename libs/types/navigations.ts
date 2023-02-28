@@ -11,6 +11,7 @@ export type MainNavigationScreens = {
   Dashboard: DashboardNaviagtionScreens
   Settings: undefined
   EditProfile: undefined
+  WordReader: undefined
 }
 
 export type TRootStackParams = {
