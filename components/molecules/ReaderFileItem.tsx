@@ -2,7 +2,7 @@ import { useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
 import { ReaderFileInformation } from 'libs/types'
 import React from 'react'
-import { StyleSheet, View, ViewProps } from 'react-native'
+import { Pressable, StyleSheet, View, ViewProps } from 'react-native'
 
 import { Icon, Typographgy } from 'components/atoms'
 
@@ -10,16 +10,18 @@ import { ReaderFileIcon } from './ReaderFileIcon'
 
 type ReaderFileItemProps = {
   fileInformation: ReaderFileInformation
+  onPress: () => void
 } & ViewProps
 export const ReaderFileItem: React.FunctionComponent<ReaderFileItemProps> = ({
   style,
+  onPress,
   fileInformation,
   ...otherProps
 }) => {
   const BaseStyle = useThemedStyles(styles)
   return (
     <View {...otherProps} style={[BaseStyle.container, style]}>
-      <View style={BaseStyle.content}>
+      <Pressable style={BaseStyle.content} onPress={onPress}>
         <View style={BaseStyle.assetContainer}>
           <ReaderFileIcon />
         </View>
@@ -40,7 +42,7 @@ export const ReaderFileItem: React.FunctionComponent<ReaderFileItemProps> = ({
             )}
           </View>
         </View>
-      </View>
+      </Pressable>
       <View>
         <Icon name='more-horizontal' size={20} />
       </View>
