@@ -54,8 +54,7 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
         <Formik
           initialValues={formInitialValues}
           onSubmit={handleLogin}
-          validationSchema={signInSchema}
-        >
+          validationSchema={signInSchema}>
           {({
             values,
             isValid,
@@ -104,8 +103,7 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
                   variant='contained'
                   onPress={() => {
                     handleSubmit()
-                  }}
-                >
+                  }}>
                   {buttonLabel}
                 </Button>
               </View>
@@ -115,8 +113,7 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
                     handleAuthMode(EAuthenticationMode.SIGNUP)
                   }}
                   TypographgyStyles={style.footerButton}
-                  variant='text'
-                >
+                  variant='text'>
                   {formFooterLabel}
                 </Button>
                 <Button
@@ -124,8 +121,7 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
                     handleAuthMode(EAuthenticationMode.PASSWORD_RESET)
                   }}
                   TypographgyStyles={style.footerButton}
-                  variant='text'
-                >
+                  variant='text'>
                   {forgotPasswordLabel}
                 </Button>
               </View>

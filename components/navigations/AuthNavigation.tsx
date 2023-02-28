@@ -12,8 +12,7 @@ export const AuthNavigation = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}
-    >
+      }}>
       <Stack.Screen name={AUTH_SCREEN} component={Authentication} />
     </Stack.Navigator>
   )

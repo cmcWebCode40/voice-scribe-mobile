@@ -19,8 +19,7 @@ export const Dashboard = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle,
-      }}
-    >
+      }}>
       <Tab.Screen
         name={MY_FILES}
         options={{

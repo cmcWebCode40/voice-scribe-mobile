@@ -17,8 +17,7 @@ export const ReaderFileIcon: React.FunctionComponent<ReaderFileIconProps> = ({
   return (
     <View
       {...otherProps}
-      style={[style.container, isReading && style.isActive]}
-    >
+      style={[style.container, isReading && style.isActive]}>
       <Icon
         name='unread'
         color={isReading ? ColorTheme.colors.white : ColorTheme.colors.black}

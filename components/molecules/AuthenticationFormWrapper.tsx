@@ -27,8 +27,7 @@ export const AuthenticationFormWrapper: React.FunctionComponent<
         <Typographgy variant='h2'>{title}</Typographgy>
       </View>
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      >
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           {children}
         </TouchableWithoutFeedback>

@@ -64,8 +64,7 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
         <Formik
           initialValues={formInitialValues}
           onSubmit={handleCreateAccount}
-          validationSchema={signUpSchema}
-        >
+          validationSchema={signUpSchema}>
           {({
             values,
             isValid,
@@ -129,8 +128,7 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
                     handleSubmit()
                   }}
                   variant='contained'
-                  disabled={!isValid}
-                >
+                  disabled={!isValid}>
                   {buttonLabel}
                 </Button>
               </View>
@@ -140,8 +138,7 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
                     handleAuthMode(EAuthenticationMode.LOGIN)
                   }}
                   TypographgyStyles={style.footerButton}
-                  variant='text'
-                >
+                  variant='text'>
                   {DontHaveAccountMessage}
                 </Button>
               </View>

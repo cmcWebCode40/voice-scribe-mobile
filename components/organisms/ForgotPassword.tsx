@@ -34,8 +34,7 @@ export const ForgotPassword: React.FunctionComponent = () => {
       <Formik
         initialValues={formInitialValues}
         onSubmit={handleResetPassword}
-        validationSchema={resetPasswordSchema}
-      >
+        validationSchema={resetPasswordSchema}>
         {({
           values,
           isValid,
@@ -66,8 +65,7 @@ export const ForgotPassword: React.FunctionComponent = () => {
                 variant='contained'
                 onPress={() => {
                   handleSubmit()
-                }}
-              >
+                }}>
                 {buttonLabel}
               </Button>
             </View>

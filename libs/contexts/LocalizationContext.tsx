@@ -39,8 +39,7 @@ export const LocalizationContextProvider: React.FunctionComponent<
 
   return (
     <LocalizationContext.Provider
-      value={{ currentLanguage, handleLanguageChange }}
-    >
+      value={{ currentLanguage, handleLanguageChange }}>
       {children}
     </LocalizationContext.Provider>
   )
