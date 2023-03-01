@@ -34,8 +34,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "clean:node_modules": "rm -rf node_modules/",
-    "build:ios":"eas build --development --platform ios",
-    "build:android":"eas build --development --platform android"
+    "build:ios": "eas build --development --platform ios",
+    "build:android": "eas build --development --platform android"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -46,11 +46,16 @@
     "@supabase/supabase-js": "^2.8.0",
     "babel-plugin-inline-dotenv": "^1.7.0",
     "expo": "~47.0.12",
+    "expo-application": "~5.0.1",
+    "expo-device": "~5.0.0",
+    "expo-file-system": "~15.1.1",
+    "expo-localization": "~14.0.0",
     "expo-speech": "^11.0.0",
     "expo-splash-screen": "^0.17.5",
     "expo-status-bar": "~1.4.2",
     "formik": "^2.2.9",
     "i18next": "^22.4.9",
+    "posthog-react-native": "^2.5.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-i18next": "^12.1.5",
