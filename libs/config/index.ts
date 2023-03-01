@@ -12,4 +12,6 @@ export const config = {
   supaBaseURL: process.env.REACT_NATIVE_SUPABASE_URL,
   supaBaseAnonKey: process.env.REACT_NATIVE_SUPABASE_ANON_KEY,
   supaBaseServiceRole: process.env.REACT_NATIVE_SUPABASE_SERVICE_ROLE as string,
+  postHogApiKey: process.env.REACT_NATIVE_POST_HOG_API_KEY,
+  postHogURl: process.env.REACT_NATIVE_POST_HOG_URL,
 }

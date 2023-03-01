@@ -1,4 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native'
+import { config } from 'libs/config'
+import { PostHogProvider } from 'posthog-react-native'
 import React from 'react'
 
 import { AuthenticationContextProvider } from './AuthenticationContext'
@@ -14,11 +16,17 @@ export const AppContext: React.FunctionComponent<AppContextProps> = ({
   return (
     <ThemeContextProvider>
       <LocalizationContextProvider>
-        <NavigationContainer>
-          <AuthenticationContextProvider>
-            {children}
-          </AuthenticationContextProvider>
-        </NavigationContainer>
+        <AuthenticationContextProvider>
+          <NavigationContainer>
+            <PostHogProvider
+              apiKey={config.postHogApiKey}
+              options={{
+                host: config.postHogURl,
+              }}>
+              {children}
+            </PostHogProvider>
+          </NavigationContainer>
+        </AuthenticationContextProvider>
       </LocalizationContextProvider>
     </ThemeContextProvider>
   )
