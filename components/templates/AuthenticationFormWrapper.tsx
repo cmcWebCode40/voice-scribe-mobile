@@ -12,7 +12,7 @@ import {
 
 import { Typographgy } from 'components/atoms'
 
-import { NavigationHeader } from './NavigationHeader'
+import { NavigationHeader } from '../molecules/NavigationHeader'
 
 type AuthenticationFormWrapperProps = {
   title?: string
