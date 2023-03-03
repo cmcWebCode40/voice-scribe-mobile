@@ -11,10 +11,8 @@ import { useTranslation } from 'react-i18next'
 import { Alert, StyleSheet, TextInput, View } from 'react-native'
 
 import { Button, Typographgy } from 'components/atoms'
-import {
-  AuthenticationFormWrapper,
-  LoaderWithOverlay,
-} from 'components/molecules'
+import { LoaderWithOverlay } from 'components/molecules'
+import { AuthenticationFormWrapper } from 'components/templates'
 
 const formInitialValues = {
   email: '',
