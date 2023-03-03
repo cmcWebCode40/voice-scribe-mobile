@@ -2,6 +2,7 @@ import { WORDS_DB_COLLECTION } from 'libs/constants'
 import { useDatabse, useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
 import React, { useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { StyleSheet, TextInput, View } from 'react-native'
 
 import { Button, Typographgy } from 'components/atoms'
@@ -11,6 +12,7 @@ export const AddWordsForm: React.FunctionComponent = () => {
   const [words, setWords] = useState('')
   const style = useThemedStyles(styles)
   const { save, isLoading } = useDatabse()
+  const { t: translation } = useTranslation()
 
   const handleAddWords = useCallback(async () => {
     await save(WORDS_DB_COLLECTION, { title, words })
@@ -19,7 +21,9 @@ export const AddWordsForm: React.FunctionComponent = () => {
   return (
     <View>
       <View style={style.titleContainer}>
-        <Typographgy variant='h2'>Paste Text</Typographgy>
+        <Typographgy variant='h2'>
+          {translation('AddWordsForm.title')}
+        </Typographgy>
       </View>
       <View style={style.inputContainer}>
         <TextInput

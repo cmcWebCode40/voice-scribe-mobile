@@ -2,6 +2,7 @@ import { RouteProp, useRoute } from '@react-navigation/native'
 import { WORDS_DB_COLLECTION } from 'libs/constants'
 import { useDatabse, useThemedStyles } from 'libs/hooks'
 import React, { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 
 import { Typographgy } from 'components/atoms'
@@ -20,10 +21,12 @@ export const WordReader: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
   const route = useRoute<RouteProp<ParamList, 'route'>>()
   const { get, data, isLoading } = useDatabse()
+  const { t: translation } = useTranslation()
   useEffect(() => {
     get(WORDS_DB_COLLECTION, ['*'], route.params.id)
   }, [get, route.params.id])
 
+  const noDataTitle = translation('WordReader.noData')
   return (
     <SafeAreaView style={style.container}>
       <NavigationHeader IconType='back' />
@@ -51,7 +54,7 @@ export const WordReader: React.FunctionComponent = () => {
               </>
             ) : (
               <Typographgy style={style.title} variant='h2'>
-                No data
+                {noDataTitle}
               </Typographgy>
             )}
           </>

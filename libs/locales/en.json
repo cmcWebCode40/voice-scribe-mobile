@@ -56,5 +56,11 @@
     "usernamePlaceHolder": "username",
     "emailPlaceHolder": "email",
     "buttonLabel": "Update"
+  },
+  "AddWordsForm": {
+    "title": "Paster Text Here"
+  },
+  "WordReader": {
+    "noData": "No Data"
   }
 }
