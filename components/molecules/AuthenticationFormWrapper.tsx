@@ -4,35 +4,40 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
+  SafeAreaView,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
-  ViewProps,
 } from 'react-native'
 
 import { Typographgy } from 'components/atoms'
 
+import { NavigationHeader } from './NavigationHeader'
+
 type AuthenticationFormWrapperProps = {
   title?: string
   children: React.ReactNode
-} & ViewProps
+}
 
 export const AuthenticationFormWrapper: React.FunctionComponent<
   AuthenticationFormWrapperProps
-> = ({ children, title, ...otherProps }) => {
+> = ({ children, title }) => {
   const style = useThemedStyles(styles)
   return (
-    <View style={style.container} {...otherProps}>
-      <View style={style.titleContainer}>
-        <Typographgy variant='h2'>{title}</Typographgy>
+    <SafeAreaView>
+      <NavigationHeader IconType='back' />
+      <View style={style.container}>
+        <View style={style.titleContainer}>
+          <Typographgy variant='h2'>{title}</Typographgy>
+        </View>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            {children}
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
       </View>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          {children}
-        </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
-    </View>
+    </SafeAreaView>
   )
 }
 

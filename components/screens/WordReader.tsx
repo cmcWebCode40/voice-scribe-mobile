@@ -1,32 +1,64 @@
-import { useThemedStyles } from 'libs/hooks'
-import { mockedWords } from 'libs/mock'
-import React from 'react'
+import { RouteProp, useRoute } from '@react-navigation/native'
+import { WORDS_DB_COLLECTION } from 'libs/constants'
+import { useDatabse, useThemedStyles } from 'libs/hooks'
+import React, { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 
 import { Typographgy } from 'components/atoms'
-import { NavigationHeader, WordPlayerControl } from 'components/molecules'
+import {
+  LoaderIndicator,
+  NavigationHeader,
+  WordPlayerControl,
+} from 'components/molecules'
 import { WordView } from 'components/organisms'
+
+type ParamList = {
+  route: { id: string | number }
+}
 
 export const WordReader: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
+  const route = useRoute<RouteProp<ParamList, 'route'>>()
+  const { get, data, isLoading } = useDatabse()
+  const { t: translation } = useTranslation()
+  useEffect(() => {
+    get(WORDS_DB_COLLECTION, ['*'], route.params.id)
+  }, [get, route.params.id])
+
+  const noDataTitle = translation('WordReader.noData')
   return (
     <SafeAreaView style={style.container}>
       <NavigationHeader IconType='back' />
       <View style={style.content}>
-        <View style={style.titleContainer}>
-          <Typographgy style={style.title} variant='h2'>
-            Title
-          </Typographgy>
-          <Typographgy style={style.title} variant='p1'>
-            10 words
-          </Typographgy>
-        </View>
-        <View>
-          <WordView words={mockedWords} />
-        </View>
-        <View>
-          <WordPlayerControl words={mockedWords} />
-        </View>
+        {isLoading ? (
+          <LoaderIndicator />
+        ) : (
+          <>
+            {data ? (
+              <>
+                <View style={style.titleContainer}>
+                  <Typographgy style={style.title} variant='h2'>
+                    {data.title}
+                  </Typographgy>
+                  <Typographgy style={style.title} variant='p1'>
+                    {data.duration}
+                  </Typographgy>
+                </View>
+                <View>
+                  <WordView words={data.words} />
+                </View>
+                <View>
+                  <WordPlayerControl words={data.words} />
+                </View>
+              </>
+            ) : (
+              <Typographgy style={style.title} variant='h2'>
+                {noDataTitle}
+              </Typographgy>
+            )}
+          </>
+        )}
       </View>
     </SafeAreaView>
   )

@@ -8,7 +8,7 @@ import { FlatList, StyleSheet, View } from 'react-native'
 import { ReaderFileItem } from 'components/molecules'
 
 type ReaderFilesProps = {
-  files: ReaderFileInformation[]
+  files: ReaderFileInformation[] | null
 }
 export const ReaderFiles: React.FunctionComponent<ReaderFilesProps> = ({
   files,
@@ -16,18 +16,38 @@ export const ReaderFiles: React.FunctionComponent<ReaderFilesProps> = ({
   const navigation =
     useNavigation<NativeStackNavigationProp<MainNavigationScreens>>()
 
-  const navigateToWordReaderScreen = useCallback(() => {
-    navigation.navigate(WORD_READER)
-  }, [navigation])
-  const Item = (information: ReaderFileInformation) => (
+  const navigateToWordReaderScreen = useCallback(
+    (itemId: string | undefined) => {
+      if (itemId) {
+        navigation.navigate(WORD_READER, {
+          id: itemId,
+        })
+      }
+    },
+    [navigation]
+  )
+  const Item = ({
+    completed,
+    date,
+    duration,
+    title,
+    id: itemId,
+  }: Omit<
+    ReaderFileInformation,
+    'words' | 'userId' | 'created_at' | 'updated_at'
+  >) => (
     <ReaderFileItem
+      completed={completed}
+      date={date}
+      duration={duration}
+      title={title}
+      itemId={itemId}
       style={styles.fileItem}
-      fileInformation={information}
       onPress={navigateToWordReaderScreen}
     />
   )
 
-  if (files.length < 0) {
+  if (files && files.length < 0) {
     return null
   }
 
@@ -36,6 +56,7 @@ export const ReaderFiles: React.FunctionComponent<ReaderFilesProps> = ({
       <FlatList
         data={files}
         renderItem={({ item }) => <Item {...item} />}
+        //TODO: Fix this ts issue
         // keyExtractor={(item) => item.id}
       />
     </View>

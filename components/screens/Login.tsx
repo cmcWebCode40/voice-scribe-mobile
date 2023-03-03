@@ -1,7 +1,10 @@
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { Formik } from 'formik'
+import { DASHBOARD, FORGOT_PASSWORD, SIGN_UP } from 'libs/constants'
 import { useAuth, useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
-import { AuthenticationMode, EAuthenticationMode } from 'libs/types'
+import { AuthNavigationScreens, MainNavigationScreens } from 'libs/types'
 import { signInSchema } from 'libs/utils'
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -13,22 +16,27 @@ import {
   LoaderWithOverlay,
 } from 'components/molecules'
 
-type CreateAccount = {
-  onClose: () => void
-  handleAuthMode: (arg: AuthenticationMode) => void
-}
-
 const formInitialValues = {
   email: '',
   password: '',
 }
-export const Login: React.FunctionComponent<CreateAccount> = ({
-  handleAuthMode,
-}) => {
+
+export const Login: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
   const { t: translation } = useTranslation()
-  const { login, authError, isProcessing } = useAuth()
+  const { login, authError, isProcessing, session } = useAuth()
 
+  const navigation =
+    useNavigation<NativeStackNavigationProp<MainNavigationScreens>>()
+  const autNavigation =
+    useNavigation<NativeStackNavigationProp<AuthNavigationScreens>>()
+
+  const handleAuthNavigation = useCallback(
+    (type: 'ForgotPassword' | 'SignUp') => {
+      autNavigation.navigate(type)
+    },
+    [autNavigation]
+  )
   const handleLogin = useCallback(
     async (values: typeof formInitialValues) => {
       await login(values.email, values.password)
@@ -36,8 +44,13 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
         Alert.alert('Login Error', authError.message)
         return
       }
+      if (session) {
+        navigation.navigate(DASHBOARD, {
+          MyFiles: undefined,
+        })
+      }
     },
-    [authError, login]
+    [authError, login, navigation, session]
   )
 
   const formTitle = translation('Login.formTitle')
@@ -110,7 +123,7 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
               <View>
                 <Button
                   onPress={() => {
-                    handleAuthMode(EAuthenticationMode.SIGNUP)
+                    handleAuthNavigation(SIGN_UP)
                   }}
                   TypographgyStyles={style.footerButton}
                   variant='text'>
@@ -118,7 +131,7 @@ export const Login: React.FunctionComponent<CreateAccount> = ({
                 </Button>
                 <Button
                   onPress={() => {
-                    handleAuthMode(EAuthenticationMode.PASSWORD_RESET)
+                    handleAuthNavigation(FORGOT_PASSWORD)
                   }}
                   TypographgyStyles={style.footerButton}
                   variant='text'>
