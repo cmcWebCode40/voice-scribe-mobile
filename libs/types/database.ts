@@ -18,6 +18,7 @@ export type DbGetDocs = {
   supabase: SupabaseClient
   dbName: string
   userId: string
+  id?: string | number
   selectFrom: string[]
 }
 
