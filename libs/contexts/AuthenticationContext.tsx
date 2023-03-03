@@ -41,7 +41,9 @@ export const AuthenticationContextProvider: React.FunctionComponent<
   const [authError, setAuthError] = useState<Error | null>(null)
 
   useEffect(() => {
-    initUserSession()
+    if (!session && !user) {
+      initUserSession()
+    }
     /**
      *  Supabase auth session listener to detect when user session changed
      */
@@ -55,7 +57,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
     return () => {
       authListener.subscription.unsubscribe()
     }
-  }, [])
+  }, [session, user])
 
   const clearSession = useCallback(() => {
     setUser(undefined)
@@ -63,7 +65,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
   }, [])
 
   const login = useCallback(async (email: string, password: string) => {
-    setIsProcessing(true)
+    // setIsProcessing(true)
     try {
       const data = await supabase.auth.signInWithPassword({
         email,
@@ -76,7 +78,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
     } catch (error) {
       setAuthError(error)
     } finally {
-      setIsProcessing(false)
+      // setIsProcessing(false)
     }
   }, [])
 

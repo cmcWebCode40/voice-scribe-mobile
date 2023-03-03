@@ -1,7 +1,10 @@
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { Formik } from 'formik'
+import { DASHBOARD, LOGIN } from 'libs/constants'
 import { useAuth, useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
-import { AuthenticationMode, EAuthenticationMode } from 'libs/types'
+import { AuthNavigationScreens, MainNavigationScreens } from 'libs/types'
 import { signUpSchema } from 'libs/utils'
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -13,24 +16,30 @@ import {
   LoaderWithOverlay,
 } from 'components/molecules'
 
-type CreateAccount = {
-  onClose: () => void
-  handleAuthMode: (arg: AuthenticationMode) => void
-}
 const formInitialValues = {
   email: '',
   fullName: '',
   password: '',
   confirmPassword: '',
 }
-export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
-  handleAuthMode,
-}) => {
+export const SignUp: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
   const { t: translation } = useTranslation()
-  const { signUp, isProcessing, authError } = useAuth()
+  const { signUp, isProcessing, authError, session } = useAuth()
 
-  const handleCreateAccount = useCallback(
+  const navigation =
+    useNavigation<NativeStackNavigationProp<MainNavigationScreens>>()
+  const autNavigation =
+    useNavigation<NativeStackNavigationProp<AuthNavigationScreens>>()
+
+  const handleNavigation = useCallback(
+    (type: 'Login' | 'SignUp') => {
+      autNavigation.navigate(type)
+    },
+    [autNavigation]
+  )
+
+  const handleSignUp = useCallback(
     async (values: typeof formInitialValues) => {
       await signUp(values.email, values.password, values.fullName)
       if (authError) {
@@ -41,21 +50,24 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
         'Sign up',
         'Confirmation email link has been sent to you please confirm your mail'
       )
+      if (session?.access_token) {
+        navigation.navigate(DASHBOARD, {
+          MyFiles: undefined,
+        })
+      }
     },
-    [authError, signUp]
+    [authError, navigation, session?.access_token, signUp]
   )
 
-  const formTitle = translation('CreateAccount.formTitle')
-  const emailPlaceHolder = translation('CreateAccount.emailPlaceHolder')
-  const passwordPlaceHolder = translation('CreateAccount.passwordPlaceHolder')
+  const formTitle = translation('SignUp.formTitle')
+  const emailPlaceHolder = translation('SignUp.emailPlaceHolder')
+  const passwordPlaceHolder = translation('SignUp.passwordPlaceHolder')
   const confirmPasswordPlaceHolder = translation(
-    'CreateAccount.confirmPasswordPlaceHolder'
+    'SignUp.confirmPasswordPlaceHolder'
   )
-  const buttonLabel = translation('CreateAccount.buttonLabel')
-  const formFooterLabel = translation('CreateAccount.formFooterLabel')
-  const DontHaveAccountMessage = translation(
-    'CreateAccount.dontHaveAccountMessage'
-  )
+  const buttonLabel = translation('SignUp.buttonLabel')
+  const formFooterLabel = translation('SignUp.formFooterLabel')
+  const DontHaveAccountMessage = translation('SignUp.dontHaveAccountMessage')
 
   return (
     <AuthenticationFormWrapper title={formTitle}>
@@ -63,7 +75,7 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
         <LoaderWithOverlay isLoading={isProcessing} />
         <Formik
           initialValues={formInitialValues}
-          onSubmit={handleCreateAccount}
+          onSubmit={handleSignUp}
           validationSchema={signUpSchema}>
           {({
             values,
@@ -135,7 +147,7 @@ export const CreateAccount: React.FunctionComponent<CreateAccount> = ({
               <View>
                 <Button
                   onPress={() => {
-                    handleAuthMode(EAuthenticationMode.LOGIN)
+                    handleNavigation(LOGIN)
                   }}
                   TypographgyStyles={style.footerButton}
                   variant='text'>
