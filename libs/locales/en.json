@@ -3,7 +3,7 @@
     "achievedGoalsHeading": "Achieve goals",
     "achievedGoalCaption": "See your all your wins"
   },
-  "CreateAccount": {
+  "SignUp": {
     "formTitle": "Sign Up",
     "namePlaceHolder": "Enter your name",
     "emailPlaceHolder": "email@address.com",

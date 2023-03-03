@@ -4,7 +4,7 @@ const common = {
   error: '#dc2626',
   white: '#fff',
   black: '#000',
-  gray100: '#ddd',
+  gray100: '#F6F7F9',
 }
 
 const light = {

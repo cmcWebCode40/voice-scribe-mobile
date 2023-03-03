@@ -23,7 +23,7 @@ export const useUploadAvatar = () => {
       }
 
       const fr = new FileReader()
-      fr.readAsDataURL(data)
+      fr.readAsDataURL(data as any)
       fr.onload = () => {
         setAvatarUrl(fr.result as string)
       }
@@ -52,6 +52,10 @@ export const useUploadAvatar = () => {
 
       const formData = new FormData()
       formData.append('file', photo as any)
+
+      if (!file.name) {
+        return
+      }
 
       const fileExt = file.name.split('.').pop()
       const filePath = `${Math.random()}.${fileExt}`
