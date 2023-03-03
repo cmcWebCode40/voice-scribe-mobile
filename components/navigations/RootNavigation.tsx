@@ -3,19 +3,13 @@ import { useAuth } from 'libs/hooks'
 import { TRootStackParams } from 'libs/types'
 import React from 'react'
 
-import { LoaderWithOverlay } from 'components/molecules'
-
 import { AuthNavigation } from './AuthNavigation'
 import { MainNavigation } from './MainNavigation'
 
 const Stack = createNativeStackNavigator<TRootStackParams>()
 
 export const RootNavigation = () => {
-  const { session, isProcessing } = useAuth()
-
-  if (isProcessing) {
-    return <LoaderWithOverlay isLoading={isProcessing} />
-  }
+  const { session } = useAuth()
 
   return (
     <Stack.Navigator

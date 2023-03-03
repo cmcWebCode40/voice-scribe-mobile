@@ -1,6 +1,7 @@
+import { WORDS_LIST_ACTION_SHEET_FEATURE } from 'libs/constants'
 import { useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
-import { ReaderFileInformation } from 'libs/types'
+import { usePostHog } from 'posthog-react-native'
 import React from 'react'
 import { Pressable, StyleSheet, View, ViewProps } from 'react-native'
 
@@ -9,42 +10,61 @@ import { Icon, Typographgy } from 'components/atoms'
 import { ReaderFileIcon } from './ReaderFileIcon'
 
 type ReaderFileItemProps = {
-  fileInformation: ReaderFileInformation
-  onPress: () => void
+  title?: string
+  duration?: string
+  date?: string
+  completed?: boolean
+  itemId?: string
+  onPress: (itemId: string | undefined) => void
 } & ViewProps
 export const ReaderFileItem: React.FunctionComponent<ReaderFileItemProps> = ({
   style,
   onPress,
-  fileInformation,
+  date,
+  duration,
+  title,
+  itemId,
   ...otherProps
 }) => {
   const BaseStyle = useThemedStyles(styles)
+  const posthog = usePostHog()
+
+  const isWordListActionEnabled = posthog?.isFeatureEnabled(
+    WORDS_LIST_ACTION_SHEET_FEATURE
+  )
+
   return (
     <View {...otherProps} style={[BaseStyle.container, style]}>
-      <Pressable style={BaseStyle.content} onPress={onPress}>
+      <Pressable
+        style={BaseStyle.content}
+        onPress={() => {
+          if (itemId) {
+            onPress(itemId)
+          }
+        }}>
         <View style={BaseStyle.assetContainer}>
           <ReaderFileIcon />
         </View>
         <View>
           <Typographgy style={BaseStyle.title} variant='h3'>
-            {fileInformation.title}
+            {title}
           </Typographgy>
           <View style={BaseStyle.captionContainer}>
-            {fileInformation.duration && (
+            {duration && (
               <Typographgy style={BaseStyle.caption} variant='p2'>
-                {fileInformation.duration}
+                {duration}
               </Typographgy>
             )}
-            {fileInformation.date && (
+            {date && (
               <Typographgy style={BaseStyle.caption} variant='p2'>
-                {fileInformation.date}
+                {date}
               </Typographgy>
             )}
           </View>
         </View>
       </Pressable>
       <View>
-        <Icon name='more-horizontal' size={20} />
+        {isWordListActionEnabled && <Icon name='more-horizontal' size={20} />}
       </View>
     </View>
   )

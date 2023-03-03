@@ -18,28 +18,21 @@ type AppModalProps = {
   children: React.ReactNode
 } & ModalProps
 
-const HIT_SLOP = {
-  bottom: 20,
-  left: 20,
-  right: undefined,
-  top: 50,
-}
-
 export const Modal = ({
   onClose,
   visible,
   children,
   title,
+  animationType = 'slide',
   ...rest
 }: AppModalProps) => {
   const style = useThemedStyles(styles)
   return (
     <UIModal
       {...rest}
-      animationType='slide'
       transparent={true}
       visible={visible}
-      hitSlop={HIT_SLOP}
+      animationType={animationType}
       onRequestClose={onClose}>
       <View style={style.container}>
         <View style={style.spacer} />
@@ -48,7 +41,7 @@ export const Modal = ({
             <Pressable onPress={onClose}>
               <Icon name='close' />
             </Pressable>
-            {title && <Typographgy variant='h2'>{title}</Typographgy>}
+            {title && <Typographgy variant='h3'>{title}</Typographgy>}
             <View />
           </View>
           {title && <View style={style.divider} />}
