@@ -5,21 +5,29 @@
   },
   "SignUp": {
     "formTitle": "Sign Up",
+    "dontHaveAccountMessage": "Already have an account? Login",
+    "formFooterLabel": "By siginin up you agree to our terms and conditons and provacy policy"
+  },
+  "SignUpForm": {
     "namePlaceHolder": "Enter your name",
     "emailPlaceHolder": "email@address.com",
     "passwordPlaceHolder": "Enter your password",
     "confirmPasswordPlaceHolder": "Confirm password",
-    "buttonLabel": "Create Account",
-    "dontHaveAccountMessage": "Already have an account? Login",
-    "formFooterLabel": "By siginin up you agree to our terms and conditons and provacy policy"
+    "buttonLabel": "Create Account"
   },
   "Login": {
     "formTitle": "Sign In",
-    "emailPlaceHolder": "email@address.com",
-    "passwordPlaceHolder": "Enter your password",
-    "buttonLabel": "Login",
     "forgotPasswordLabel": "Forgot password ? reset here",
     "formFooterLabel": "Dont't have an account ? Create account"
+  },
+  "LoginForm": {
+    "emailPlaceHolder": "email@address.com",
+    "passwordPlaceHolder": "Enter your password",
+    "buttonLabel": "Login"
+  },
+  "ResetPasswordForm": {
+    "emailPlaceHolder": "email@address.com",
+    "buttonLabel": "Login"
   },
   "CustomFallBack": {
     "title": "Oops Something happened!",
@@ -47,7 +55,6 @@
     "AccountSectionTitle": "Account"
   },
   "ForgotPassword": {
-    "formTitle": "Password Reset",
     "emailPlaceHolder": "email@address.com",
     "buttonLabel": "Reset Password"
   },

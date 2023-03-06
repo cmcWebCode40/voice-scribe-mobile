@@ -1,11 +1,12 @@
 import { useDatabse, useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
 import React, { useCallback, useState } from 'react'
-import { SafeAreaView, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import { Icon, IconButton } from 'components/atoms'
 import { LoaderIndicator } from 'components/molecules'
 import { AddWordsModal, ReaderFiles } from 'components/organisms'
+import { AppSafeAreaView } from 'components/templates'
 
 import { generateBoxShadowStyle } from '../../styles'
 
@@ -23,7 +24,7 @@ export const Home: React.FunctionComponent = () => {
   }, [])
 
   return (
-    <SafeAreaView style={style.container}>
+    <AppSafeAreaView style={style.container}>
       <View style={style.readFilesContainer}>
         {isLoading && (
           <View>
@@ -40,7 +41,7 @@ export const Home: React.FunctionComponent = () => {
         />
       </View>
       <AddWordsModal isOpened={isOpened} onClose={handleClose} />
-    </SafeAreaView>
+    </AppSafeAreaView>
   )
 }
 

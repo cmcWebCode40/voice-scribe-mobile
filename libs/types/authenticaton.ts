@@ -6,3 +6,10 @@ export enum EAuthenticationMode {
   SIGNUP = 'sign-up',
   PASSWORD_RESET = 'password-reset',
 }
+
+export type FormValues = {
+  email: string
+  fullName: string
+  password: string
+  confirmPassword: string
+}

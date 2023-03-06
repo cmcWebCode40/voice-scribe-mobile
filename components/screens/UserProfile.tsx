@@ -4,7 +4,6 @@ import { SETTINGS } from 'libs/constants'
 import { useAuth } from 'libs/hooks'
 import { MainNavigationScreens } from 'libs/types'
 import React, { useCallback } from 'react'
-import { SafeAreaView, StyleSheet, View } from 'react-native'
 
 import { Icon } from 'components/atoms'
 import {
@@ -12,6 +11,7 @@ import {
   NavigationHeader,
   ProfileInformation,
 } from 'components/molecules'
+import { AppLayoutView, AppSafeAreaView } from 'components/templates'
 
 export const UserProfile: React.FunctionComponent = () => {
   const { user } = useAuth()
@@ -23,20 +23,14 @@ export const UserProfile: React.FunctionComponent = () => {
   }, [navigation])
 
   return (
-    <SafeAreaView>
+    <AppSafeAreaView>
       <NavigationHeader
         rightIcon={<Icon name='setting' onPress={handleNavigation} />}
       />
-      <View style={styles.content}>
+      <AppLayoutView>
         <ProfileInformation profile={{ email: user?.email }} />
         <AchievedGoals />
-      </View>
-    </SafeAreaView>
+      </AppLayoutView>
+    </AppSafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  content: {
-    padding: 16,
-  },
-})
