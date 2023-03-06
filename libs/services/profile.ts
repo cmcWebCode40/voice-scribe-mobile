@@ -15,11 +15,7 @@ export const updateProfile = async (
   supabase: SupabaseClient,
   updatedProfile: Profile
 ) => {
-  const { error, data } = await supabase.from('profiles').update(updatedProfile)
-  return {
-    error,
-    data,
-  }
+  return await supabase.from('profiles').update(updatedProfile)
 }
 
 export const createProfile = async (
@@ -41,11 +37,5 @@ export const uploadProfileImage = async (
   filePath: string,
   formData: FormData
 ) => {
-  const { error } = await supabase.storage
-    .from('avatars')
-    .upload(filePath, formData)
-
-  return {
-    error,
-  }
+  return await supabase.storage.from('avatars').upload(filePath, formData)
 }
