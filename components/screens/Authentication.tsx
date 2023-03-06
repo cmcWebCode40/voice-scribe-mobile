@@ -6,10 +6,11 @@ import { Theme } from 'libs/theme'
 import { AuthNavigationScreens } from 'libs/types'
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { SafeAreaView, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import AppLogo from 'assets/images/authentication_screen_image.svg'
 import { Button, Typographgy } from 'components/atoms'
+import { AppSafeAreaView } from 'components/templates'
 
 export const Authentication: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
@@ -25,7 +26,7 @@ export const Authentication: React.FunctionComponent = () => {
   )
 
   return (
-    <SafeAreaView style={style.container}>
+    <AppSafeAreaView style={style.container}>
       <View style={style.imageContainer}>
         <AppLogo width={150} height={150} />
       </View>
@@ -52,7 +53,7 @@ export const Authentication: React.FunctionComponent = () => {
           {translation('Authentication.LoginButtonLabel')}
         </Button>
       </View>
-    </SafeAreaView>
+    </AppSafeAreaView>
   )
 }
 

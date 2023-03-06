@@ -3,7 +3,7 @@ import { WORDS_DB_COLLECTION } from 'libs/constants'
 import { useDatabse, useThemedStyles } from 'libs/hooks'
 import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { SafeAreaView, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import { Typographgy } from 'components/atoms'
 import {
@@ -12,6 +12,7 @@ import {
   WordPlayerControl,
 } from 'components/molecules'
 import { WordView } from 'components/organisms'
+import { AppLayoutView, AppSafeAreaView } from 'components/templates'
 
 type ParamList = {
   route: { id: string | number }
@@ -28,9 +29,9 @@ export const WordReader: React.FunctionComponent = () => {
 
   const noDataTitle = translation('WordReader.noData')
   return (
-    <SafeAreaView style={style.container}>
+    <AppSafeAreaView style={style.container}>
       <NavigationHeader IconType='back' />
-      <View style={style.content}>
+      <AppLayoutView style={style.content}>
         {isLoading ? (
           <LoaderIndicator />
         ) : (
@@ -59,8 +60,8 @@ export const WordReader: React.FunctionComponent = () => {
             )}
           </>
         )}
-      </View>
-    </SafeAreaView>
+      </AppLayoutView>
+    </AppSafeAreaView>
   )
 }
 

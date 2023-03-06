@@ -2,10 +2,10 @@ import { useUploadAvatar } from 'libs/hooks'
 import { useProfile } from 'libs/hooks/useProfile'
 import { Profile } from 'libs/types'
 import React, { useCallback } from 'react'
-import { SafeAreaView, StyleSheet, View } from 'react-native'
 
 import { NavigationHeader } from 'components/molecules'
 import { EditAccount, UploadAvatar } from 'components/organisms'
+import { AppLayoutView, AppSafeAreaView } from 'components/templates'
 
 export const EditProfile: React.FunctionComponent = () => {
   const { profile, updateUserProfile } = useProfile()
@@ -18,9 +18,9 @@ export const EditProfile: React.FunctionComponent = () => {
     [updateUserProfile]
   )
   return (
-    <SafeAreaView>
+    <AppSafeAreaView>
       <NavigationHeader IconType='back' />
-      <View style={styles.content}>
+      <AppLayoutView>
         <EditAccount profile={profile} updateProfile={updateProfile} />
         <UploadAvatar
           url={profile?.avatar}
@@ -28,13 +28,7 @@ export const EditProfile: React.FunctionComponent = () => {
             updateProfile({ avatar_url: avatarUrl })
           }}
         />
-      </View>
-    </SafeAreaView>
+      </AppLayoutView>
+    </AppSafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  content: {
-    padding: 16,
-  },
-})

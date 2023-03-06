@@ -4,9 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 export const useSpeech = () => {
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [voices, setVoices] = useState<Speech.Voice[] | null>(null)
-  const [maxAcceptedLength] = useState<number | null>(
-    Speech.maxSpeechInputLength
-  )
+  const [maxAcceptedLength] = useState(Speech.maxSpeechInputLength)
 
   const getAvailableVoices = useCallback(async () => {
     const vociesList = await Speech.getAvailableVoicesAsync()

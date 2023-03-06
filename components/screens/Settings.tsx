@@ -2,7 +2,7 @@ import { useAuth, useThemedStyles } from 'libs/hooks'
 import { Theme } from 'libs/theme'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { SafeAreaView, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import { Avatar, Typographgy } from 'components/atoms'
 import { NavigationHeader, ProfileSettingsCard } from 'components/molecules'
@@ -10,6 +10,7 @@ import {
   SettingAboutSection,
   SettingsAccountSection,
 } from 'components/organisms'
+import { AppLayoutView, AppSafeAreaView } from 'components/templates'
 
 export const Settings: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
@@ -20,9 +21,9 @@ export const Settings: React.FunctionComponent = () => {
   const AboutUsSectionTitle = translation('Settings.AboutUsSectionTitle')
   const AccountSectionTitle = translation('Settings.AccountSectionTitle')
   return (
-    <SafeAreaView>
+    <AppSafeAreaView>
       <NavigationHeader IconType='back' />
-      <View style={style.content}>
+      <AppLayoutView>
         <View style={style.sectionContainer}>
           <Typographgy style={style.title} variant='h1'>
             {settingTitle}
@@ -44,16 +45,13 @@ export const Settings: React.FunctionComponent = () => {
           </Typographgy>
           <SettingsAccountSection />
         </View>
-      </View>
-    </SafeAreaView>
+      </AppLayoutView>
+    </AppSafeAreaView>
   )
 }
 
 const styles = (theme: Theme) => {
   return StyleSheet.create({
-    content: {
-      padding: 16,
-    },
     title: {
       marginBottom: 16,
     },
