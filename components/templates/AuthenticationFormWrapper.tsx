@@ -4,15 +4,16 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
 } from 'react-native'
 
 import { Typographgy } from 'components/atoms'
+import { NavigationHeader } from 'components/molecules'
 
-import { NavigationHeader } from '../molecules/NavigationHeader'
+import { AppLayoutView } from './AppLayoutView'
+import { AppSafeAreaView } from './AppSafeAreaView'
 
 type AuthenticationFormWrapperProps = {
   title?: string
@@ -24,9 +25,9 @@ export const AuthenticationFormWrapper: React.FunctionComponent<
 > = ({ children, title }) => {
   const style = useThemedStyles(styles)
   return (
-    <SafeAreaView>
+    <AppSafeAreaView>
       <NavigationHeader IconType='back' />
-      <View style={style.container}>
+      <AppLayoutView>
         <View style={style.titleContainer}>
           <Typographgy variant='h2'>{title}</Typographgy>
         </View>
@@ -36,16 +37,13 @@ export const AuthenticationFormWrapper: React.FunctionComponent<
             {children}
           </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
-      </View>
-    </SafeAreaView>
+      </AppLayoutView>
+    </AppSafeAreaView>
   )
 }
 
 const styles = () => {
   return StyleSheet.create({
-    container: {
-      padding: 16,
-    },
     titleContainer: {
       marginVertical: 16,
     },
