@@ -19,21 +19,21 @@ const formInitialValues = {
   password: '',
   confirmPassword: '',
 }
+
+type NavigationRoutes = MainNavigationScreens & AuthNavigationScreens
 export const SignUp: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
   const { t: translation } = useTranslation()
   const { signUp, isProcessing, authError, session } = useAuth()
 
   const navigation =
-    useNavigation<NativeStackNavigationProp<MainNavigationScreens>>()
-  const autNavigation =
-    useNavigation<NativeStackNavigationProp<AuthNavigationScreens>>()
+    useNavigation<NativeStackNavigationProp<NavigationRoutes>>()
 
   const handleNavigation = useCallback(
     (type: 'Login' | 'SignUp') => {
-      autNavigation.navigate(type)
+      navigation.navigate(type)
     },
-    [autNavigation]
+    [navigation]
   )
 
   const handleSignUp = useCallback(

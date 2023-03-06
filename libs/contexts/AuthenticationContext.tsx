@@ -51,6 +51,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
       async (_, authSession) => {
         setSession(authSession)
         setUser(authSession?.user)
+        setIsProcessing(false)
       }
     )
 
@@ -65,7 +66,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
   }, [])
 
   const login = useCallback(async (email: string, password: string) => {
-    // setIsProcessing(true)
+    setIsProcessing(true)
     try {
       const data = await supabase.auth.signInWithPassword({
         email,
@@ -78,7 +79,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
     } catch (error) {
       setAuthError(error)
     } finally {
-      // setIsProcessing(false)
+      setIsProcessing(false)
     }
   }, [])
 

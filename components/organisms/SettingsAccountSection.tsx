@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next'
 import { Alert, StyleSheet, View } from 'react-native'
 
 import { Icon } from 'components/atoms'
-import { ProfileSettingsCard } from 'components/molecules'
+import { LoaderWithOverlay, ProfileSettingsCard } from 'components/molecules'
 
 export const SettingsAccountSection: React.FunctionComponent = () => {
   const { t: translation } = useTranslation()
-  const { deleteAccount, authError, session, logout } = useAuth()
+  const { deleteAccount, authError, session, logout, isProcessing } = useAuth()
 
   const handleLogout = useCallback(async () => {
     await logout()
@@ -49,6 +49,7 @@ export const SettingsAccountSection: React.FunctionComponent = () => {
 
   return (
     <View>
+      <LoaderWithOverlay isLoading={isProcessing} />
       <View style={styles.cardContainer}>
         <ProfileSettingsCard
           title={logoutTitle}

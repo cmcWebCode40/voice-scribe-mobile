@@ -17,22 +17,20 @@ const formInitialValues = {
   email: '',
   password: '',
 }
-
+type NavigationRoutes = MainNavigationScreens & AuthNavigationScreens
 export const Login: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
   const { t: translation } = useTranslation()
   const { login, authError, isProcessing, session } = useAuth()
 
   const navigation =
-    useNavigation<NativeStackNavigationProp<MainNavigationScreens>>()
-  const autNavigation =
-    useNavigation<NativeStackNavigationProp<AuthNavigationScreens>>()
+    useNavigation<NativeStackNavigationProp<NavigationRoutes>>()
 
   const handleAuthNavigation = useCallback(
     (type: 'ForgotPassword' | 'SignUp') => {
-      autNavigation.navigate(type)
+      navigation.navigate(type)
     },
-    [autNavigation]
+    [navigation]
   )
   const handleLogin = useCallback(
     async (values: typeof formInitialValues) => {
