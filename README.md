@@ -1,12 +1,17 @@
 # Voice Scribe Mobile App (WIP)
 
-[![Runs with expo][expo-shield]][expo-url]
-[![npm][npm-shield]][package-url]
-![IOS][ios-shield]
-![Android][android-shield]
-![Web][web-shield]
-![Typescript][typescript-shield]
-[![Tested with jest][jest-shield]][jest-url]
+
+<p align="center">
+   <a aria-label="runs with Expo Go" href="https://www.npmjs.com/package/expo" target="_blank">
+    <img alt="Expo runs with Expo Go" src="https://img.shields.io/badge/Runs%20with%20Expo%20Go-000.svg?style=flat-square&logo=EXPO&labelColor=f3f3f3&logoColor=000" />
+  </a>
+  <a aria-label="Ios" href="npmjs.com/package/expo" target="_blank">
+    <img alt="IOS" src="https://img.shields.io/badge/iOS-999999.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff)" />
+  </a>
+  <a aria-label="supports Android" href="https://chat.expo.dev" target="_blank">
+    <img alt="supports Android" src="https://img.shields.io/badge/Android-A4C639.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
+  </a>
+</p>
 
 > Work in progress
 
