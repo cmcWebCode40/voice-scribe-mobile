@@ -1,5 +1,13 @@
 # Voice Scribe Mobile App (WIP)
 
+[![Runs with expo][expo-shield]][expo-url]
+[![npm][npm-shield]][package-url]
+![IOS][ios-shield]
+![Android][android-shield]
+![Web][web-shield]
+![Typescript][typescript-shield]
+[![Tested with jest][jest-shield]][jest-url]
+
 > Work in progress
 
 <img
