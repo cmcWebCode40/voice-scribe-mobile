@@ -19,7 +19,8 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.cmcwebcode.speechscribe"
+      "bundleIdentifier": "com.cmcwebcode.speechscribe",
+      "buildNumber":"1"
     },
     "android": {
       "adaptiveIcon": {

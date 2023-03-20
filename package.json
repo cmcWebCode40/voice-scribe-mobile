@@ -35,6 +35,7 @@
     "web": "expo start --web",
     "test": "jest",
     "clean:node_modules": "rm -rf node_modules/",
+    "submit:ios":"eas submit -p ios --latest",
     "build:ios": "eas build --development --platform ios",
     "build:android": "eas build --development --platform android"
   },
