@@ -10,7 +10,7 @@ type AuthenticationContextProps = {
   login: (email: string, password: string) => Promise<void>
   signUp: (email: string, password: string, fullName?: string) => Promise<void>
   isProcessing: boolean
-  authError: Error | null
+  authError: any
   updatePassword: (email: string) => Promise<void>
   deleteAccount: (userId: string) => void
 }
@@ -38,7 +38,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
   const [user, setUser] = useState<User | undefined>(undefined)
   const [session, setSession] = useState<Session | null>(null)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [authError, setAuthError] = useState<Error | null>(null)
+  const [authError, setAuthError] = useState<any>(null)
 
   useEffect(() => {
     if (!session && !user) {

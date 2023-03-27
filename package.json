@@ -24,11 +24,10 @@
   ],
   "scripts": {
     "start": "expo start",
-    "type:check": "yarn tsc",
+    "ts:check": "yarn tsc --noemit",
     "format:check": "npx prettier . --check",
     "format": "npx prettier . --write",
     "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "ts:check": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
     "android": "expo start --android",
     "ios": "expo start --ios",

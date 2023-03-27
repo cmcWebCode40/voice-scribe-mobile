@@ -61,7 +61,6 @@ export const LoginForm: React.FunctionComponent<LoginFormProps> = ({
               </Typographgy>
             )}
           </View>
-
           <View style={style.inputContainer}>
             <TextInput
               value={values.password}

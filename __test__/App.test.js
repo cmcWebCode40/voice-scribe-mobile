@@ -9,7 +9,6 @@ describe('<App />', () => {
     // renderer.act(() => {
     tree = renderer.create(<App />).toJSON()
     // })
-    console.log(tree)
     // expect(tree.children.length).toBe(1)
   })
 })
