@@ -10,8 +10,7 @@ type AuthenticationContextProps = {
   login: (email: string, password: string) => Promise<void>
   signUp: (email: string, password: string, fullName?: string) => Promise<void>
   isProcessing: boolean
-  authError: Error | null
-  setIsProcessing: (arg: boolean) => void
+  authError: any
   updatePassword: (email: string) => Promise<void>
   deleteAccount: (userId: string) => void
 }
@@ -25,7 +24,6 @@ export const AuthenticationContext =
     logout: async () => {},
     login: async () => {},
     signUp: async () => {},
-    setIsProcessing: (_arg: boolean) => {},
     updatePassword: async () => {},
     deleteAccount: async () => {},
   })
@@ -40,7 +38,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
   const [user, setUser] = useState<User | undefined>(undefined)
   const [session, setSession] = useState<Session | null>(null)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [authError, setAuthError] = useState<Error | null>(null)
+  const [authError, setAuthError] = useState<any>(null)
 
   useEffect(() => {
     if (!session && !user) {
@@ -184,7 +182,6 @@ export const AuthenticationContextProvider: React.FunctionComponent<
       logout,
       authError,
       isProcessing,
-      setIsProcessing,
       updatePassword,
       deleteAccount,
     }),
@@ -196,7 +193,6 @@ export const AuthenticationContextProvider: React.FunctionComponent<
       logout,
       session,
       signUp,
-      setIsProcessing,
       updatePassword,
       user,
     ]

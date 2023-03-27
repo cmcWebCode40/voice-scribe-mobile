@@ -6,8 +6,8 @@ import {
   Ionicons,
   SimpleLineIcons,
 } from '@expo/vector-icons'
-import { SvgProps } from "react-native-svg";
 import React from 'react'
+import { SvgProps } from 'react-native-svg'
 
 type FontAwesome5IconsName = 'user-circle' | 'edit'
 
@@ -53,54 +53,43 @@ export const Icon: React.FunctionComponent<IconProps> = ({
 }) => {
   switch (name) {
     case 'share-outline':
-      return <Ionicons name={name}  size={size}  {...otherProps} />
+      return <Ionicons name={name} size={size} {...otherProps} />
     case 'reader-outline':
-      return <Ionicons name={name} size={size}  {...otherProps} />
+      return <Ionicons name={name} size={size} {...otherProps} />
     case 'logout':
-      return (
-        <SimpleLineIcons
-          name={name}
-          size={size}
-          
-          {...otherProps}
-        />
-      )
+      return <SimpleLineIcons name={name} size={size} {...otherProps} />
     case 'add':
-      return <Ionicons name={name} size={size}  {...otherProps} />
+      return <Ionicons name={name} size={size} {...otherProps} />
     case 'addfile':
-      return <AntDesign name={name} size={size}  {...otherProps} />
+      return <AntDesign name={name} size={size} {...otherProps} />
     case 'bulb-outline':
-      return <Ionicons name={name} size={size}  {...otherProps} />
+      return <Ionicons name={name} size={size} {...otherProps} />
     case 'close':
-      return <Ionicons name={name} size={size}  {...otherProps} />
+      return <Ionicons name={name} size={size} {...otherProps} />
     case 'chevron-back':
-      return <Ionicons name={name} size={size}  {...otherProps} />
+      return <Ionicons name={name} size={size} {...otherProps} />
     case 'chevron-forward':
-      return <Ionicons name={name} size={size}  {...otherProps} />
+      return <Ionicons name={name} size={size} {...otherProps} />
     case 'delete':
-      return <AntDesign name={name} size={size}  {...otherProps} />
+      return <AntDesign name={name} size={size} {...otherProps} />
     case 'search1':
-      return <AntDesign name={name} size={size}  {...otherProps} />
+      return <AntDesign name={name} size={size} {...otherProps} />
     case 'play':
-      return <AntDesign name={name} size={size}  {...otherProps} />
+      return <AntDesign name={name} size={size} {...otherProps} />
     case 'pausecircle':
-      return <AntDesign name={name} size={size}  {...otherProps} />
+      return <AntDesign name={name} size={size} {...otherProps} />
     case 'setting':
-      return <AntDesign name={name} size={size}  {...otherProps} />
+      return <AntDesign name={name} size={size} {...otherProps} />
     case 'user':
-      return <AntDesign name={name} size={size}  {...otherProps} />
+      return <AntDesign name={name} size={size} {...otherProps} />
     case 'more-horizontal':
-      return <Feather name={name} size={size}  {...otherProps} />
+      return <Feather name={name} size={size} {...otherProps} />
     case 'unread':
-      return <Entypo name={name} size={size}  {...otherProps} />
+      return <Entypo name={name} size={size} {...otherProps} />
     case 'edit':
-      return (
-        <FontAwesome5 name={name} size={size}  {...otherProps} />
-      )
+      return <FontAwesome5 name={name} size={size} {...otherProps} />
     case 'user-circle':
-      return (
-        <FontAwesome5 name={name} size={size}  {...otherProps} />
-      )
+      return <FontAwesome5 name={name} size={size} {...otherProps} />
     default:
       throw new Error('Icon not supported')
   }

@@ -15,7 +15,7 @@ export const Library: React.FunctionComponent = () => {
       <AppLayoutView>
         <View style={style.sectionContainer}>
           <Typographgy style={style.title} variant='h1'>
-           Library
+            Library
           </Typographgy>
         </View>
       </AppLayoutView>

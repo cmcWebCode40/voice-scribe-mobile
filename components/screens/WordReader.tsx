@@ -37,20 +37,20 @@ export const WordReader: React.FunctionComponent = () => {
         ) : (
           <>
             {data ? (
-                <View style={style.wordReaderContainer}>
-                  <View>
-                    <Typographgy style={style.title} variant='h2'>
-                      {data.title}
-                    </Typographgy>
-                    <Typographgy style={style.title} variant='p1'>
-                      {data.duration}
-                    </Typographgy>
-                    <WordView words={data.words} />
-                  </View>
-                  <View style={style.wordPlayerControl}>
-                    <WordPlayerControl words={data.words} />
-                  </View>
+              <View style={style.wordReaderContainer}>
+                <View>
+                  <Typographgy style={style.title} variant='h2'>
+                    {data.title}
+                  </Typographgy>
+                  <Typographgy style={style.title} variant='p1'>
+                    {data.duration}
+                  </Typographgy>
+                  <WordView words={data.words} />
                 </View>
+                <View style={style.wordPlayerControl}>
+                  <WordPlayerControl words={data.words} />
+                </View>
+              </View>
             ) : (
               <Typographgy style={style.title} variant='h2'>
                 {noDataTitle}

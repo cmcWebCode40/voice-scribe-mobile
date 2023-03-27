@@ -3,8 +3,8 @@ import React from 'react'
 import { ScrollView, StyleSheet, View, ViewProps } from 'react-native'
 
 type AppLayoutViewProps = {
-  children: React.ReactNode,
-  withScroll?:boolean
+  children: React.ReactNode
+  withScroll?: boolean
 } & ViewProps
 
 export const AppLayoutView: React.FunctionComponent<AppLayoutViewProps> = ({
@@ -18,9 +18,7 @@ export const AppLayoutView: React.FunctionComponent<AppLayoutViewProps> = ({
   if (withScroll) {
     return (
       <View style={[baseStyle.container, style]} {...otherProps}>
-        <ScrollView>
-          {children}
-        </ScrollView>
+        <ScrollView>{children}</ScrollView>
       </View>
     )
   }

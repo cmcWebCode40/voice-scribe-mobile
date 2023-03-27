@@ -9,14 +9,10 @@ import {
   Login,
   SignUp,
 } from 'components/screens'
-import { useAuth } from 'libs/hooks'
 
 const Stack = createNativeStackNavigator<AuthNavigationScreens>()
 
 export const AuthNavigation = () => {
-  const { session , isProcessing} = useAuth()
-
-  
   return (
     <Stack.Navigator
       screenOptions={{
