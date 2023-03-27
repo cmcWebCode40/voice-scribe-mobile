@@ -20,7 +20,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.cmcwebcode.speechscribe",
-      "buildNumber":"1"
+      "buildNumber":"2"
     },
     "android": {
       "adaptiveIcon": {
