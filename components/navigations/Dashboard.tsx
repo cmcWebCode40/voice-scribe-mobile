@@ -14,6 +14,7 @@ const TAB_ICON_SIZE = 28
 export const Dashboard = () => {
   const { theme } = useTheme()
   const { tabBarLabelStyle, tabBarStyle } = useThemedStyles(styles)
+
   return (
     <Tab.Navigator
       screenOptions={{
