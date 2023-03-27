@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "start": "expo start",
-    "type:check": "yarn tsc --noemit",
+    "ts:check": "yarn tsc --noemit",
     "format:check": "npx prettier . --check",
     "format": "npx prettier . --write",
     "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx",
