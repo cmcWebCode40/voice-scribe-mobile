@@ -11,6 +11,7 @@ type AuthenticationContextProps = {
   signUp: (email: string, password: string, fullName?: string) => Promise<void>
   isProcessing: boolean
   authError: Error | null
+  setIsProcessing: (arg: boolean) => void
   updatePassword: (email: string) => Promise<void>
   deleteAccount: (userId: string) => void
 }
@@ -24,6 +25,7 @@ export const AuthenticationContext =
     logout: async () => {},
     login: async () => {},
     signUp: async () => {},
+    setIsProcessing: (_arg: boolean) => {},
     updatePassword: async () => {},
     deleteAccount: async () => {},
   })
@@ -182,6 +184,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
       logout,
       authError,
       isProcessing,
+      setIsProcessing,
       updatePassword,
       deleteAccount,
     }),
@@ -193,6 +196,7 @@ export const AuthenticationContextProvider: React.FunctionComponent<
       logout,
       session,
       signUp,
+      setIsProcessing,
       updatePassword,
       user,
     ]

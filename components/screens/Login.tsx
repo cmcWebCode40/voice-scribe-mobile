@@ -21,7 +21,7 @@ type NavigationRoutes = MainNavigationScreens & AuthNavigationScreens
 export const Login: React.FunctionComponent = () => {
   const style = useThemedStyles(styles)
   const { t: translation } = useTranslation()
-  const { login, authError, isProcessing, session } = useAuth()
+  const { login, authError, isProcessing, session , setIsProcessing } = useAuth()
 
   const navigation =
     useNavigation<NativeStackNavigationProp<NavigationRoutes>>()
@@ -40,6 +40,7 @@ export const Login: React.FunctionComponent = () => {
         return
       }
       if (session) {
+        setIsProcessing(false)
         navigation.navigate(DASHBOARD, {
           MyFiles: undefined,
         })

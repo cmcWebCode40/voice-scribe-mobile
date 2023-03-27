@@ -1,17 +1,30 @@
 import { useThemedStyles } from 'libs/hooks'
 import React from 'react'
-import { StyleSheet, View, ViewProps } from 'react-native'
+import { ScrollView, StyleSheet, View, ViewProps } from 'react-native'
 
 type AppLayoutViewProps = {
-  children: React.ReactNode
+  children: React.ReactNode,
+  withScroll?:boolean
 } & ViewProps
 
 export const AppLayoutView: React.FunctionComponent<AppLayoutViewProps> = ({
   children,
   style,
+  withScroll = true,
   ...otherProps
 }) => {
   const baseStyle = useThemedStyles(styles)
+
+  if (withScroll) {
+    return (
+      <View style={[baseStyle.container, style]} {...otherProps}>
+        <ScrollView>
+          {children}
+        </ScrollView>
+      </View>
+    )
+  }
+
   return (
     <View style={[baseStyle.container, style]} {...otherProps}>
       {children}

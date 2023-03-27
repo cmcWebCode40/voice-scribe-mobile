@@ -13,7 +13,8 @@ export const ErrorBoundary: React.FunctionComponent<ErrorBoundaryProps> = ({
   const errorHandler = (error: Error, stackTrace: string) => {
     /* Log the error to an error reporting service */
     // eslint-disable-next-line no-console
-    console.log(error, stackTrace)
+    console.log(error)
+    console.table(stackTrace)
   }
 
   return (

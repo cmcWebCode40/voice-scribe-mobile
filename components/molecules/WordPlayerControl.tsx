@@ -15,7 +15,6 @@ export const WordPlayerControl: React.FunctionComponent<
   WordPlayerControlProps
 > = ({ words }) => {
   const style = useThemedStyles(styles)
-
   const { start, isSpeaking, stop } = useSpeech()
 
   const handleStartReading = useCallback(() => {
@@ -52,7 +51,8 @@ const styles = (theme: Theme) => {
       alignItems: 'center',
       paddingVertical: 16,
       borderRadius: theme.radius.lg,
-      backgroundColor: theme.colors.gray100,
+      borderWidth: 1,
+      borderColor: theme.colors.primary,
       ...generateBoxShadowStyle({
         elevation: 7,
         shadowColorAndroid: theme.colors.black,
